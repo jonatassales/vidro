@@ -1,6 +1,6 @@
 export async function getRepositoryStars(): Promise<number | null> {
   try {
-    const response = await fetch('https://api.github.com/repos/gojhonny/vidro', {
+    const response = await fetch('https://api.github.com/repos/jonatassales/vidro', {
       headers: {
         Accept: 'application/vnd.github+json',
         'User-Agent': 'vidro-website',

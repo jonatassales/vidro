@@ -68,7 +68,7 @@ export function HomeExperience({ stars }: { stars: number | null }) {
             >
               {copy.docs}
             </a>
-            <GithubStars count={stars} href="https://github.com/gojhonny/vidro" />
+            <GithubStars count={stars} href="https://github.com/jonatassales/vidro" />
           </div>
         </div>
       </header>

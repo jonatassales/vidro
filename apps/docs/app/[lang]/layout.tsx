@@ -60,7 +60,7 @@ export default async function DocsLayout({
       <a className="text-sm font-medium text-foreground" href={`${websiteUrl}?locale=${locale}`}>
         {chrome.website}
       </a>
-      <a className="text-sm font-medium text-foreground" href="https://github.com/gojhonny/vidro">
+      <a className="text-sm font-medium text-foreground" href="https://github.com/jonatassales/vidro">
         {chrome.github}
       </a>
     </Navbar>
@@ -71,7 +71,7 @@ export default async function DocsLayout({
       <Head backgroundColor={{ dark: '#F8FBFC', light: '#F8FBFC' }} color={{ hue: 200, saturation: 10 }} />
       <Layout
         darkMode={false}
-        docsRepositoryBase="https://github.com/gojhonny/vidro/tree/main/apps/docs"
+        docsRepositoryBase="https://github.com/jonatassales/vidro/tree/main/apps/docs"
         editLink={chrome.edit}
         feedback={{ content: chrome.feedback }}
         footer={<Footer>{chrome.footer}</Footer>}

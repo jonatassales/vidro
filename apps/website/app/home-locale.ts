@@ -4,7 +4,6 @@ export interface HomeCopy {
   copyImport: string
   slogan: string
   description: string
-  docs: string
   tryEditor: string
   pauseCarousel: string
   resumeCarousel: string
@@ -21,9 +20,7 @@ export interface HomeCopy {
   included: string
   features: string[]
   product: string
-  resources: string
   footerDescription: string
-  backToTop: string
 }
 
 export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
@@ -32,7 +29,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     slogan: 'A clear view of your code.',
     description:
       'Vidro is an embeddable Web Component code editor with a little glass. Edit, compare, and explore changes with four thoughtful presets, crisp syntax, and light and dark themes.',
-    docs: 'Docs',
     tryEditor: 'Try the editor',
     pauseCarousel: 'Pause carousel',
     resumeCarousel: 'Resume carousel',
@@ -56,17 +52,14 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Framework-independent Web Component and semantic events',
     ],
     product: 'Product',
-    resources: 'Resources',
     footerDescription:
       'A little glass. A lot of clarity. An editor that feels at home in your application.',
-    backToTop: 'Back to top',
   },
   'pt-BR': {
     copyImport: 'Copiar importação',
     slogan: 'Seu código com clareza.',
     description:
       'Um editor de código com um toque de vidro. Edite, compare e explore mudanças com quatro modos, sintaxe nítida e temas claro e escuro.',
-    docs: 'Docs',
     tryEditor: 'Experimente o editor',
     pauseCarousel: 'Pausar carrossel',
     resumeCarousel: 'Retomar carrossel',
@@ -90,17 +83,14 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Web Component independente de framework e eventos semânticos',
     ],
     product: 'Produto',
-    resources: 'Recursos',
     footerDescription:
       'Um toque de vidro. Muito mais clareza. Um editor que combina com a sua aplicação.',
-    backToTop: 'Voltar ao início',
   },
   zh: {
     copyImport: '复制导入语句',
     slogan: '清晰呈现每一行代码。',
     description:
       'Vidro 是带有轻盈玻璃质感的 Web Component 代码编辑器。四种预设、清晰的语法高亮，以及明暗主题，让编辑与比较更加直观。',
-    docs: '文档',
     tryEditor: '体验编辑器',
     pauseCarousel: '暂停轮播',
     resumeCarousel: '继续轮播',
@@ -123,16 +113,13 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       '独立于框架的 Web Component 与语义事件',
     ],
     product: '产品',
-    resources: '资源',
     footerDescription: '一抹玻璃质感，更多代码清晰度。自然融入你的应用。',
-    backToTop: '返回顶部',
   },
   ja: {
     copyImport: 'インポートをコピー',
     slogan: 'コードを、もっとクリアに。',
     description:
       'Vidro は、ほのかなガラスの質感を持つ Web Component コードエディター。4つのプリセット、鮮明な構文表示、ライト・ダークテーマで編集や比較を快適に。',
-    docs: 'ドキュメント',
     tryEditor: 'エディターを試す',
     pauseCarousel: 'カルーセルを一時停止',
     resumeCarousel: 'カルーセルを再開',
@@ -157,9 +144,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'フレームワークに依存しない Web Component とセマンティックイベント',
     ],
     product: '製品',
-    resources: 'リソース',
     footerDescription:
       'ほのかなガラス、もっとクリアなコード。あなたのアプリケーションになじむエディター。',
-    backToTop: 'トップへ戻る',
   },
 }

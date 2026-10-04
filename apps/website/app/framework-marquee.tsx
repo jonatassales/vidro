@@ -19,17 +19,9 @@ export function FrameworkMarquee({ copy }: { copy: HomeCopy }) {
 
   return (
     <div className="mt-10 w-full">
-      <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
-        <span className="rounded-full bg-foreground px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
-          Web Component
-        </span>
-        <code className="rounded-full border border-line bg-white/70 px-2.5 py-1 font-mono text-xs text-foreground shadow-glass">
-          {'<vidro-editor>'}
-        </code>
-      </div>
       <div className="relative w-full overflow-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]">
         <div
-          className={`flex w-max animate-[vidro-marquee_32s_linear_infinite] hover:[animation-play-state:paused] motion-reduce:animate-none ${paused ? '[animation-play-state:paused]' : ''}`}
+          className={`flex w-max animate-[vidro-marquee_21.333s_linear_infinite] hover:[animation-play-state:paused] motion-reduce:animate-none ${paused ? '[animation-play-state:paused]' : ''}`}
         >
           {[0, 1].map((track) => (
             <ul

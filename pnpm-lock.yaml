@@ -72,6 +72,9 @@ importers:
 
   apps/website:
     dependencies:
+      '@neongate-ai/orbz':
+        specifier: 1.0.3
+        version: 1.0.3
       '@vidro/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
@@ -676,6 +679,11 @@ packages:
   '@napi-rs/simple-git@0.1.22':
     resolution: {integrity: sha512-bMVoAKhpjTOPHkW/lprDPwv5aD4R4C3Irt8vn+SKA9wudLe9COLxOhurrKRsxmZccUbWXRF7vukNeGUAj5P8kA==}
     engines: {node: '>= 10'}
+
+  '@neongate-ai/orbz@1.0.3':
+    resolution: {integrity: sha512-3F3YVbbB0ZftuUiIHHM9xKQBmRL9Yk7HW9LLWOAY8dM2MP4n0sq/FbtEQsJrGI4RmzleZ1LWOay2vRVaYR1jiw==}
+    engines: {node: 24.x}
+    hasBin: true
 
   '@next/env@16.1.7':
     resolution: {integrity: sha512-rJJbIdJB/RQr2F1nylZr/PJzamvNNhfr3brdKP6s/GW850jbtR70QlSfFselvIBbcPUOlQwBakexjFzqLzF6pg==}
@@ -3308,6 +3316,8 @@ snapshots:
       '@napi-rs/simple-git-win32-arm64-msvc': 0.1.22
       '@napi-rs/simple-git-win32-ia32-msvc': 0.1.22
       '@napi-rs/simple-git-win32-x64-msvc': 0.1.22
+
+  '@neongate-ai/orbz@1.0.3': {}
 
   '@next/env@16.1.7': {}
 

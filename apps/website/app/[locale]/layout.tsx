@@ -1,7 +1,9 @@
+import { HOME_LOCALE_LANG, isHomeLocale } from '@vidro/react/locale'
 import type { Metadata } from 'next'
 import { IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
+import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
-import './globals.css'
+import '../globals.css'
 
 const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -31,9 +33,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: ReactNode
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  if (!isHomeLocale(locale)) notFound()
+
   return (
-    <html className={`${plexSans.variable} ${plexMono.variable}`} lang="en">
+    <html className={`${plexSans.variable} ${plexMono.variable}`} lang={HOME_LOCALE_LANG[locale]}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         {children}
       </body>

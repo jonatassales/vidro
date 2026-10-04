@@ -51,9 +51,9 @@ export function Pricing({ copy }: { copy: HomeCopy }) {
             </span>
           </div>
           <div className="my-8 flex items-baseline gap-2">
-            <span className="text-2xl text-muted">R$</span>
+            <span className="text-2xl text-muted">$</span>
             <span className="text-7xl font-medium leading-none tracking-[-0.06em]">
-              3
+              1
             </span>
           </div>
           <p className="mb-8 text-sm leading-relaxed text-muted">

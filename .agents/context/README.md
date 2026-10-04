@@ -2,7 +2,7 @@
 
 Load only the fragments relevant to the task. Start current editor/website work with `09-editor-product.ctx.md`; compiler fragments below are retained historical context.
 
-- `09-editor-product.ctx.md` — approved editor pivot, monorepo boundaries, website sections, R$ 3 one-time pricing, and delivery scope.
+- `09-editor-product.ctx.md` — approved editor pivot, monorepo boundaries, website sections, $1 one-time pricing, and delivery scope.
 - `legacy-compiler-instructions.ctx.md` — prior compiler guidance, scoped to retained legacy packages.
 
 - `00-product.ctx.md` — problem statement and ownership boundary.

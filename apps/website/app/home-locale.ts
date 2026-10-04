@@ -20,6 +20,10 @@ export interface HomeCopy {
   included: string
   features: string[]
   product: string
+  license: string
+  policies: string
+  backedBy: string
+  socialLinks: string
   footerDescription: string
 }
 
@@ -52,6 +56,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Framework-independent Web Component and semantic events',
     ],
     product: 'Product',
+    license: 'License',
+    policies: 'Policies',
+    backedBy: 'Backed by:',
+    socialLinks: 'Social networks',
     footerDescription:
       'A little glass. A lot of clarity. An editor that feels at home in your application.',
   },
@@ -83,6 +91,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Web Component independente de framework e eventos semânticos',
     ],
     product: 'Produto',
+    license: 'Licença',
+    policies: 'Políticas',
+    backedBy: 'Apoiado por:',
+    socialLinks: 'Redes sociais',
     footerDescription:
       'Um toque de vidro. Muito mais clareza. Um editor que combina com a sua aplicação.',
   },
@@ -113,6 +125,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       '独立于框架的 Web Component 与语义事件',
     ],
     product: '产品',
+    license: '许可证',
+    policies: '政策',
+    backedBy: '支持方：',
+    socialLinks: '社交平台',
     footerDescription: '一抹玻璃质感，更多代码清晰度。自然融入你的应用。',
   },
   ja: {
@@ -144,6 +160,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'フレームワークに依存しない Web Component とセマンティックイベント',
     ],
     product: '製品',
+    license: 'ライセンス',
+    policies: 'ポリシー',
+    backedBy: '支える技術：',
+    socialLinks: 'ソーシャルメディア',
     footerDescription:
       'ほのかなガラス、もっとクリアなコード。あなたのアプリケーションになじむエディター。',
   },

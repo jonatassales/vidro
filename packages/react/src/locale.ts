@@ -2,7 +2,8 @@ export const HOME_LOCALES = ['en', 'pt-BR', 'zh', 'ja'] as const
 
 export type HomeLocale = (typeof HOME_LOCALES)[number]
 
-export const HOME_LOCALE_STORAGE_KEY = 'vidro-home-locale'
+export const HOME_LOCALE_COOKIE_KEY = 'vidro-home-locale'
+export const HOME_LOCALE_STORAGE_KEY = HOME_LOCALE_COOKIE_KEY
 
 export const HOME_LOCALE_LABELS: Record<HomeLocale, string> = {
   en: 'EN',

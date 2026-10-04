@@ -14,6 +14,7 @@ export { LanguageSwitcher } from './language-switcher.js'
 export {
   HOME_LOCALE_LABELS,
   HOME_LOCALE_LANG,
+  HOME_LOCALE_COOKIE_KEY,
   HOME_LOCALE_STORAGE_KEY,
   HOME_LOCALES,
   isHomeLocale,

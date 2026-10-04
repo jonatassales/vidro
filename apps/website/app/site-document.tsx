@@ -17,7 +17,7 @@ const plexMono = IBM_Plex_Mono({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://vidro.pro'
 
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Vidro — A clear view of your code.',
   description:
@@ -31,9 +31,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export function SiteDocument({
+  children,
+  lang,
+}: {
+  children: ReactNode
+  lang: string
+}) {
   return (
-    <html className={`${plexSans.variable} ${plexMono.variable}`} lang="en">
+    <html className={`${plexSans.variable} ${plexMono.variable}`} lang={lang}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         {children}
       </body>

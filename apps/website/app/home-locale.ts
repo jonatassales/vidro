@@ -4,14 +4,10 @@ export interface HomeCopy {
   copyImport: string
   slogan: string
   description: string
-  docs: string
   tryEditor: string
-  frameworks: string
   pauseCarousel: string
   resumeCarousel: string
   heroEditorTitle: string
-  switchToDark: string
-  switchToLight: string
   playgroundLabel: string
   playgroundTitle: string
   playgroundDescription: string
@@ -24,9 +20,11 @@ export interface HomeCopy {
   included: string
   features: string[]
   product: string
-  resources: string
+  license: string
+  policies: string
+  backedBy: string
+  socialLinks: string
   footerDescription: string
-  backToTop: string
 }
 
 export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
@@ -35,14 +33,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     slogan: 'A clear view of your code.',
     description:
       'Vidro is an embeddable Web Component code editor with a little glass. Edit, compare, and explore changes with four thoughtful presets, crisp syntax, and light and dark themes.',
-    docs: 'Docs',
     tryEditor: 'Try the editor',
-    frameworks: 'Bring it to your frontend stack.',
     pauseCarousel: 'Pause carousel',
     resumeCarousel: 'Resume carousel',
     heroEditorTitle: 'Vidro code editor preview',
-    switchToDark: 'Switch editor to dark theme',
-    switchToLight: 'Switch editor to light theme',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Make it your own.',
     playgroundDescription:
@@ -62,24 +56,22 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Framework-independent Web Component and semantic events',
     ],
     product: 'Product',
-    resources: 'Resources',
+    license: 'License',
+    policies: 'Policies',
+    backedBy: 'Backed by:',
+    socialLinks: 'Social networks',
     footerDescription:
       'A little glass. A lot of clarity. An editor that feels at home in your application.',
-    backToTop: 'Back to top',
   },
   'pt-BR': {
     copyImport: 'Copiar importação',
     slogan: 'Seu código com clareza.',
     description:
       'Um editor de código com um toque de vidro. Edite, compare e explore mudanças com quatro modos, sintaxe nítida e temas claro e escuro.',
-    docs: 'Docs',
     tryEditor: 'Experimente o editor',
-    frameworks: 'Leve para o seu frontend.',
     pauseCarousel: 'Pausar carrossel',
     resumeCarousel: 'Retomar carrossel',
     heroEditorTitle: 'Prévia do editor Vidro',
-    switchToDark: 'Mudar editor para o tema escuro',
-    switchToLight: 'Mudar editor para o tema claro',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Do seu jeito.',
     playgroundDescription:
@@ -99,24 +91,22 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'Web Component independente de framework e eventos semânticos',
     ],
     product: 'Produto',
-    resources: 'Recursos',
+    license: 'Licença',
+    policies: 'Políticas',
+    backedBy: 'Apoiado por:',
+    socialLinks: 'Redes sociais',
     footerDescription:
       'Um toque de vidro. Muito mais clareza. Um editor que combina com a sua aplicação.',
-    backToTop: 'Voltar ao início',
   },
   zh: {
     copyImport: '复制导入语句',
     slogan: '清晰呈现每一行代码。',
     description:
       'Vidro 是带有轻盈玻璃质感的 Web Component 代码编辑器。四种预设、清晰的语法高亮，以及明暗主题，让编辑与比较更加直观。',
-    docs: '文档',
     tryEditor: '体验编辑器',
-    frameworks: '融入你的前端技术栈。',
     pauseCarousel: '暂停轮播',
     resumeCarousel: '继续轮播',
     heroEditorTitle: 'Vidro 代码编辑器预览',
-    switchToDark: '将编辑器切换为深色主题',
-    switchToLight: '将编辑器切换为浅色主题',
     playgroundLabel: '体验区',
     playgroundTitle: '打造你的编辑体验。',
     playgroundDescription:
@@ -135,23 +125,21 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       '独立于框架的 Web Component 与语义事件',
     ],
     product: '产品',
-    resources: '资源',
+    license: '许可证',
+    policies: '政策',
+    backedBy: '支持方：',
+    socialLinks: '社交平台',
     footerDescription: '一抹玻璃质感，更多代码清晰度。自然融入你的应用。',
-    backToTop: '返回顶部',
   },
   ja: {
     copyImport: 'インポートをコピー',
     slogan: 'コードを、もっとクリアに。',
     description:
       'Vidro は、ほのかなガラスの質感を持つ Web Component コードエディター。4つのプリセット、鮮明な構文表示、ライト・ダークテーマで編集や比較を快適に。',
-    docs: 'ドキュメント',
     tryEditor: 'エディターを試す',
-    frameworks: 'あなたのフロントエンドに組み込めます。',
     pauseCarousel: 'カルーセルを一時停止',
     resumeCarousel: 'カルーセルを再開',
     heroEditorTitle: 'Vidro コードエディターのプレビュー',
-    switchToDark: 'エディターをダークテーマに切り替える',
-    switchToLight: 'エディターをライトテーマに切り替える',
     playgroundLabel: 'プレイグラウンド',
     playgroundTitle: 'あなたらしい使い心地に。',
     playgroundDescription:
@@ -172,9 +160,11 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       'フレームワークに依存しない Web Component とセマンティックイベント',
     ],
     product: '製品',
-    resources: 'リソース',
+    license: 'ライセンス',
+    policies: 'ポリシー',
+    backedBy: '支える技術：',
+    socialLinks: 'ソーシャルメディア',
     footerDescription:
       'ほのかなガラス、もっとクリアなコード。あなたのアプリケーションになじむエディター。',
-    backToTop: 'トップへ戻る',
   },
 }

@@ -11,6 +11,6 @@ Vidro is an embeddable code editor. The owner approved the product pivot and edi
 - `apps/website` owns the branded page: hero, embedded playground, pricing, footer. It uses the built editor package and never imports its internal source or Monaco.
 - `@vidro/design-system` owns website tokens; `@vidro/react` owns shared site UI. Use Tailwind for website components. The editor package retains its framework-independent CSS.
 - Keep the website's light icy-glass identity, logo, IBM Plex typography, locale selector, and centralized `en`, `pt-BR`, `zh`, `ja` translations. The embedded editor playground independently supports light and dark themes.
-- Pricing is R$ 3, a one-time purchase. A working checkout needs an owner-provided HTTPS URL; the fallback action opens the playground.
+- Pricing is $1, a one-time purchase across all four website locales. A working checkout needs an owner-provided HTTPS URL; the fallback action opens the playground.
 - Keep keyboard access, visible focus, reduced-motion support, and editor forced-colors behavior.
 - Preserve legacy compiler packages and docs as historical work. Their DSL/CLI rules are scoped in [.agents/context/legacy-compiler-instructions.ctx.md](.agents/context/legacy-compiler-instructions.ctx.md); they do not define the current website or editor product.

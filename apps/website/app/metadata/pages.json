@@ -1,0 +1,32 @@
+{
+  "home": {
+    "en": {
+      "title": "Vidro — A clear view of your code.",
+      "description": "Embed Vidro's Web Component code editor in any frontend. Explore four presets, syntax highlighting, file diffs, and glassy light and dark themes."
+    },
+    "pt-BR": {
+      "title": "Vidro — Seu código com clareza.",
+      "description": "Integre o editor Web Component Vidro a qualquer frontend. Explore quatro modos, sintaxe nítida, comparação de arquivos e temas claro e escuro."
+    },
+    "zh": {
+      "title": "Vidro — 清晰呈现每一行代码。",
+      "description": "将 Vidro Web Component 代码编辑器嵌入任何前端。探索四种预设、语法高亮、文件差异比较，以及轻盈玻璃质感的明暗主题。"
+    },
+    "ja": {
+      "title": "Vidro — コードを、もっとクリアに。",
+      "description": "Vidro の Web Component コードエディターをあらゆるフロントエンドに。4つのプリセット、構文表示、ファイル比較、ガラスの質感を持つライト・ダークテーマ。"
+    }
+  },
+  "lisense": {
+    "en": {
+      "title": "License — Vidro",
+      "description": "The MIT license for the Vidro Web Component code editor package."
+    }
+  },
+  "policies": {
+    "en": {
+      "title": "Policies — Vidro",
+      "description": "Placeholder for upcoming Vidro website policies."
+    }
+  }
+}

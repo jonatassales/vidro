@@ -1,12 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import type { Metadata } from 'next'
+import { pageMetadata } from '../../metadata/page-metadata'
 import { LegalPage } from '../legal-page'
 
-export const metadata: Metadata = {
-  title: 'License — Vidro',
-  description: 'The MIT license for the Vidro editor package.',
-}
+export const metadata = pageMetadata('lisense')
 
 export default async function LicensePage() {
   const license = await readFile(

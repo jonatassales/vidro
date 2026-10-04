@@ -25,15 +25,16 @@ export function FrameworkMarquee() {
             >
               {ecosystems.map(({ name, icon }) => (
                 <li key={`${track}-${name}`}>
-                  <span className="inline-flex h-10 items-center" title={name}>
+                  <span className="inline-flex h-10 items-center gap-2.5 whitespace-nowrap text-sm font-medium text-foreground/80">
                     <Image
-                      alt={name}
+                      alt=""
                       className="size-8 shrink-0 object-contain"
                       height={32}
                       src={`/frameworks/${icon}.svg`}
                       unoptimized
                       width={32}
                     />
+                    {name}
                   </span>
                 </li>
               ))}

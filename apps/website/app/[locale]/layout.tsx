@@ -1,9 +1,11 @@
 import { HOME_LOCALE_LANG, isHomeLocale } from '@vidro/react/locale'
 import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
-import { SiteDocument, siteMetadata } from '../site-document'
+import { siteMetadata, siteViewport } from '../metadata/page-metadata'
+import { SiteDocument } from '../site-document'
 
 export const metadata = siteMetadata
+export const viewport = siteViewport
 
 export default async function RootLayout({
   children,

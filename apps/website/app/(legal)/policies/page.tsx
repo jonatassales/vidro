@@ -1,11 +1,7 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '../../metadata/page-metadata'
 import { LegalPage } from '../legal-page'
 
-export const metadata: Metadata = {
-  title: 'Policies — Vidro',
-  description: 'Placeholder for upcoming Vidro website policies.',
-  robots: { index: false, follow: false },
-}
+export const metadata = pageMetadata('policies')
 
 export default function PoliciesPage() {
   return (

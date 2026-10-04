@@ -1,0 +1,426 @@
+vidro-editor {
+  --vidro-internal-body-tint: #fff;
+  --vidro-internal-header-tint: #fafafa;
+  box-sizing: border-box;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  color: #171717;
+  background: var(--vidro-frame-background, transparent);
+  border: 1px solid var(--vidro-frame-border-color, #ebebeb);
+  border-radius: var(--vidro-frame-border-radius, 12px);
+  box-shadow: var(--vidro-frame-shadow, none);
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] {
+  --vidro-internal-body-tint: #171717;
+  --vidro-internal-header-tint: #1f1f1f;
+  color: #ededed;
+  border-color: var(--vidro-frame-border-color, #333);
+}
+
+vidro-editor:focus-within {
+  outline: 2px solid var(--vidro-focus-ring-color, #0070f3);
+  outline-offset: 2px;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"]:focus-within {
+  outline-color: var(--vidro-focus-ring-color, #8ab4ff);
+}
+
+vidro-editor .vidro-editor__surface,
+vidro-editor .vidro-editor__header,
+vidro-editor .vidro-editor__body,
+vidro-editor .vidro-editor__code,
+vidro-editor .vidro-editor__file-row,
+vidro-editor .vidro-editor__file,
+vidro-editor .vidro-editor__file-heading,
+vidro-editor .vidro-editor__file-content {
+  box-sizing: border-box;
+}
+
+vidro-editor .vidro-editor__surface [hidden] {
+  display: none;
+}
+
+vidro-editor > .vidro-editor__surface {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-height: inherit;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+vidro-editor .vidro-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: none;
+  min-height: 44px;
+  padding: 6px 12px;
+  color: #171717;
+  background: var(--vidro-internal-header-tint);
+  border-bottom: 1px solid #ebebeb;
+  font:
+    500 12px / 18px Geist,
+    Arial,
+    sans-serif;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__header {
+  color: #ededed;
+  border-color: #333;
+}
+
+vidro-editor .vidro-editor__header-identity,
+vidro-editor .vidro-editor__header-actions,
+vidro-editor .vidro-editor__file-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+vidro-editor .vidro-editor__header-actions,
+vidro-editor .vidro-editor__file-actions {
+  margin-left: auto;
+  flex: none;
+}
+
+vidro-editor .vidro-editor__header-title,
+vidro-editor .vidro-editor__file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+vidro-editor .vidro-editor__header-title {
+  font-weight: 600;
+}
+
+vidro-editor .vidro-editor__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: #737373;
+}
+
+vidro-editor .vidro-editor__icon-image,
+vidro-editor .vidro-editor__icon-fallback {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+vidro-editor .vidro-editor__icon-image {
+  object-fit: contain;
+}
+
+vidro-editor .vidro-editor__icon-fallback {
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font:
+    600 9px / 16px Geist Mono,
+    ui-monospace,
+    monospace;
+  text-align: center;
+}
+
+vidro-editor .vidro-editor__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px 0;
+  background: var(--vidro-internal-body-tint);
+}
+
+vidro-editor .vidro-editor__body--list {
+  padding: 0;
+  background: transparent;
+}
+
+vidro-editor .vidro-editor__body--list::before,
+vidro-editor .vidro-editor__body--list::after {
+  content: "";
+  flex: 0 0 8px;
+  background: var(--vidro-internal-body-tint);
+}
+
+vidro-editor .vidro-editor__body--list::after {
+  flex-grow: 1;
+}
+
+vidro-editor .vidro-editor__code {
+  flex: 1 1 auto;
+  width: 100%;
+  height: var(--vidro-internal-content-height, 68px);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+vidro-editor .vidro-editor__code .monaco-editor,
+vidro-editor .vidro-editor__code .monaco-diff-editor {
+  width: 100%;
+}
+
+vidro-editor .vidro-editor__language-select,
+vidro-editor .vidro-editor__copy-button,
+vidro-editor .vidro-editor__layout-button,
+vidro-editor .vidro-editor__disclosure {
+  flex: none;
+  color: #525252;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font:
+    500 12px / 18px Geist,
+    Arial,
+    sans-serif;
+}
+
+vidro-editor .vidro-editor__language-select {
+  max-width: 150px;
+  height: 30px;
+  padding: 0 8px;
+  border-color: #e5e5e5;
+  background: #fafafa;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__language-select {
+  border-color: #333;
+  background: #1f1f1f;
+}
+
+vidro-editor .vidro-editor__copy-button,
+vidro-editor .vidro-editor__disclosure {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+vidro-editor .vidro-editor__layout-button {
+  min-height: 30px;
+  padding: 0 8px;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__language-select,
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__copy-button,
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__layout-button,
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__disclosure {
+  color: #b0b0b0;
+}
+
+vidro-editor .vidro-editor__copy-button:hover,
+vidro-editor .vidro-editor__layout-button:hover,
+vidro-editor .vidro-editor__disclosure:hover {
+  background: #f1f1f1;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__copy-button:hover,
+vidro-editor[data-vidro-internal-theme="dark"]
+  .vidro-editor__layout-button:hover,
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__disclosure:hover {
+  background: #2b2b2b;
+}
+
+vidro-editor .vidro-editor__language-select:focus-visible,
+vidro-editor .vidro-editor__copy-button:focus-visible,
+vidro-editor .vidro-editor__layout-button:focus-visible,
+vidro-editor .vidro-editor__disclosure:focus-visible {
+  outline: 2px solid var(--vidro-focus-ring-color, #0070f3);
+  outline-offset: 2px;
+}
+
+vidro-editor .vidro-editor__copy-status {
+  color: #6b7280;
+  font:
+    400 11px / 16px Geist,
+    Arial,
+    sans-serif;
+  white-space: nowrap;
+}
+
+vidro-editor .vidro-editor__copy-status:empty {
+  display: none;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__copy-status {
+  color: #b0b0b0;
+}
+
+vidro-editor .vidro-editor__total-count,
+vidro-editor .vidro-editor__file-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font:
+    500 11px / 16px Geist Mono,
+    ui-monospace,
+    monospace;
+  white-space: nowrap;
+}
+
+vidro-editor .vidro-editor__added-count {
+  color: #18794e;
+}
+
+vidro-editor .vidro-editor__deleted-count {
+  color: #c93c37;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__added-count {
+  color: #6ed6a5;
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__deleted-count {
+  color: #ff8d86;
+}
+
+vidro-editor .vidro-editor__file-row {
+  flex: none;
+  min-width: 0;
+  padding: 0 12px 10px;
+  overflow: hidden;
+}
+
+vidro-editor .vidro-editor__file-row:last-child {
+  padding-bottom: 0;
+}
+
+vidro-editor .vidro-editor__file {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  /* The clipped outer shadow fills spacing without painting beneath the card. */
+  box-shadow: 0 0 0 24px var(--vidro-internal-body-tint);
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__file {
+  border-color: #333;
+}
+
+vidro-editor .vidro-editor__file-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 5px 8px;
+  background: var(--vidro-internal-header-tint);
+  font:
+    500 12px / 18px Geist,
+    Arial,
+    sans-serif;
+}
+
+vidro-editor .vidro-editor__file-name {
+  min-width: 0;
+  font-weight: 600;
+}
+
+vidro-editor .vidro-editor__file-content {
+  min-width: 0;
+  padding: 4px 0;
+  border-top: 1px solid #e5e5e5;
+  background: var(--vidro-internal-body-tint);
+}
+
+vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__file-content {
+  border-color: #333;
+}
+
+@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+  vidro-editor {
+    --vidro-internal-body-tint: #ffffffcc;
+    --vidro-internal-header-tint: linear-gradient(135deg, #ffffffcc, #fafafacc);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  vidro-editor[data-vidro-internal-theme="dark"] {
+    --vidro-internal-body-tint: #171717cc;
+    --vidro-internal-header-tint: linear-gradient(135deg, #262626cc, #1f1f1fcc);
+  }
+}
+
+@media (forced-colors: active) {
+  vidro-editor,
+  vidro-editor[data-vidro-internal-theme="dark"] {
+    --vidro-internal-body-tint: Canvas;
+    --vidro-internal-header-tint: Canvas;
+    color: CanvasText;
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  vidro-editor .vidro-editor__header,
+  vidro-editor .vidro-editor__body,
+  vidro-editor .vidro-editor__file-heading,
+  vidro-editor .vidro-editor__file-content,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__header,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__body,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__file-heading,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__file-content {
+    color: CanvasText;
+    background: Canvas;
+    border-color: CanvasText;
+  }
+
+  vidro-editor .vidro-editor__file,
+  vidro-editor .vidro-editor__language-select {
+    border-color: CanvasText;
+  }
+
+  vidro-editor .vidro-editor__language-select,
+  vidro-editor .vidro-editor__copy-button,
+  vidro-editor .vidro-editor__layout-button,
+  vidro-editor .vidro-editor__disclosure,
+  vidro-editor .vidro-editor__file-count,
+  vidro-editor .vidro-editor__total-count,
+  vidro-editor .vidro-editor__copy-status {
+    color: CanvasText;
+    background: Canvas;
+  }
+
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__copy-status {
+    color: CanvasText;
+    background: Canvas;
+  }
+
+  vidro-editor .vidro-editor__added-count,
+  vidro-editor .vidro-editor__deleted-count,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__added-count,
+  vidro-editor[data-vidro-internal-theme="dark"] .vidro-editor__deleted-count {
+    color: CanvasText;
+  }
+
+  vidro-editor:focus-within,
+  vidro-editor[data-vidro-internal-theme="dark"]:focus-within,
+  vidro-editor .vidro-editor__language-select:focus-visible,
+  vidro-editor .vidro-editor__copy-button:focus-visible,
+  vidro-editor .vidro-editor__layout-button:focus-visible,
+  vidro-editor .vidro-editor__disclosure:focus-visible {
+    outline-color: Highlight;
+  }
+}

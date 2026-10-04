@@ -14,3 +14,14 @@ coverage/
 
 # Vidro generated compiler state
 .vidro/.generated/
+
+# Built editor playground and verification artifacts
+apps/website/public/playground/
+apps/website/public/hero-editor/
+apps/website/public/editor-api.md
+test-results/
+playwright-report/
+.audits/runs/
+
+.env.local
+.env.*.local

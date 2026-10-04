@@ -28,8 +28,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm typecheck
+      - run: pnpm --filter vidro exec playwright install --with-deps chromium
       - run: pnpm test
       - run: pnpm build
         env:
-          NEXT_PUBLIC_WEBSITE_URL: http://localhost:3000
-          NEXT_PUBLIC_DOCS_URL: http://localhost:3001
+          NEXT_PUBLIC_SITE_URL: https://vidro.pro

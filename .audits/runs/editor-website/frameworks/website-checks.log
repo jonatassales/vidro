@@ -1,0 +1,13 @@
+PASS Branded editor page and section order
+PASS Four public elements ready and read-only by default
+PASS Frame grows and shrinks without nested page scrolling
+PASS Shared controls, language and header combinations
+PASS Enabled editing emits Stone events and updates public value
+PASS Clipboard succeeds inside the same-origin frame
+PASS Diff-list layout toggle and expanded content work
+PASS Theme switching updates all editor frames
+PASS Forced colors keep editor controls visible and disable blur
+PASS Locale changes persist and retain the live playground
+PASS Mobile page and iframe fit viewport
+PASS No browser exceptions or failed resources
+12 website checks passed

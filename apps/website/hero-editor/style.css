@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  background: transparent;
+}
+
+body {
+  padding: 2px;
+}
+
+vidro-editor {
+  display: block;
+  width: 100%;
+}

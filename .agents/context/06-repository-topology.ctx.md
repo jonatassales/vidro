@@ -1,3 +1,5 @@
+> Historical compiler-era context. The editor and website pivot is governed by [09-editor-product.ctx.md](09-editor-product.ctx.md). Retain this record for legacy packages only.
+
 # Repository topology
 
 Vidro is a pnpm/Turborepo monorepo because the compiler, CLI, website, and docs have independent build/runtime concerns but share one repository.

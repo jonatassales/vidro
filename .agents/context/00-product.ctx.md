@@ -1,3 +1,5 @@
+> Historical compiler-era context. The editor and website pivot is governed by [09-editor-product.ctx.md](09-editor-product.ctx.md). Retain this record for legacy packages only.
+
 # Product context
 
 Vidro is a future public NPM package, but its first real integration target is LangDrift.

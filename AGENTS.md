@@ -1,33 +1,16 @@
 # Vidro repository instructions
 
-This repository is the canonical implementation space for Vidro.
+Vidro is an embeddable code editor. The owner approved the product pivot and editor import on 2026-10-04. Read [.agents/context/09-editor-product.ctx.md](.agents/context/09-editor-product.ctx.md) for scope, website composition, pricing, and retained legacy work.
 
-## Loading order
+## Current boundaries
 
-1. Current code, configuration, grammar, and tests.
-2. Explicit owner decisions.
-3. This file.
-4. Relevant `.agents/context/*.ctx.md` fragments.
-5. Applicable `.agents/rules/*.rule.md`.
-
-## Invariants
-
-- Vidro is a declarative environment compiler, not a secret manager and not merely a dotenv loader.
-- One `.vidro/<project>.vidro` source controls many environment files.
-- The DSL is parsed with Langium.
-- The compiler must lower the AST into an output-independent IR before any emitter runs.
-- Generated IR belongs under `.vidro/.generated/`.
-- Environment names are identifiers, not a closed keyword list.
-- `PATH` belongs to a target, not to an environment.
-- `default` represents the plain `.env` output.
-- `KEY;`, `KEY: "";`, and `KEY: $KEY;` have different semantics.
-- Secrets are represented in Vidro source as external references such as `RESEND_API_KEY: $RESEND_API_KEY;`; secret values must not be copied into tracked Vidro source.
-- Scaffolding follows detect > infer > ask. Do not add questions for information that can be derived from repository files.
-- Applications should not need duplicated runtime environment validators when Vidro is the environment gate.
-- Do not silently normalize ecosystem-specific corner cases into generic dotenv behavior. Keep them explicit in compiler/detection policy.
-- Root `DESIGN.md` is generated from the Airtable getdesign reference. It is a structural and rhythm reference only. Airtable branding, colors, illustrations, and identity are not Vidro product decisions.
-- `@vidro/design-system` owns shared visual tokens. `@vidro/react` owns shared React UI and effects used by the website and docs.
-- The website and docs consume those packages rather than duplicating a design system.
-- Vidro is light-theme-only unless the owner explicitly changes that decision.
-- Website examples and product copy must not claim compiler functionality that is not implemented.
-- Documentation must distinguish canonical or designed semantics from currently implemented behavior.
+- Explicit owner decisions take precedence over existing code and historical compiler guidance.
+- `packages/editor` owns the framework-independent `<vidro-editor>` package, published package identity `vidro`, Stone semantics, native styling, workers, and browser fixtures.
+- Stone keeps its own `vidro-*` event names and canonical overridable 500ms inactivity window, measured after receiving editor signals.
+- Consumers configure the element through its public JavaScript properties, events, and `whenReady()`; themes use the shared runtime `setTheme()`.
+- `apps/website` owns the branded page: hero, embedded playground, pricing, footer. It uses the built editor package and never imports its internal source or Monaco.
+- `@vidro/design-system` owns website tokens; `@vidro/react` owns shared site UI. Use Tailwind for website components. The editor package retains its framework-independent CSS.
+- Keep the website's light icy-glass identity, logo, IBM Plex typography, locale selector, and centralized `en`, `pt-BR`, `zh`, `ja` translations. The embedded editor playground independently supports light and dark themes.
+- Pricing is R$ 3, a one-time purchase. A working checkout needs an owner-provided HTTPS URL; the fallback action opens the playground.
+- Keep keyboard access, visible focus, reduced-motion support, and editor forced-colors behavior.
+- Preserve legacy compiler packages and docs as historical work. Their DSL/CLI rules are scoped in [.agents/context/legacy-compiler-instructions.ctx.md](.agents/context/legacy-compiler-instructions.ctx.md); they do not define the current website or editor product.

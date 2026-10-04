@@ -1,0 +1,10 @@
+
+> vidro-workspace@0.0.0 lint /Users/sky/code/vidro
+> biome lint . --files-ignore-unknown=true && pnpm --filter vidro lint
+
+Checked 86 files in 13ms. No fixes applied.
+
+> vidro@0.1.0-preview.0 lint /Users/sky/code/vidro/packages/editor
+> biome check src sandbox scripts tests vite.config.ts playwright.config.ts
+
+Checked 43 files in 44ms. No fixes applied.

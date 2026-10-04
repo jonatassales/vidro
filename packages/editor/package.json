@@ -1,0 +1,41 @@
+{
+  "name": "vidro",
+  "version": "0.1.0-preview.0",
+  "private": false,
+  "type": "module",
+  "description": "Vidro editor web component preview",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "./dist/index.js"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --project tsconfig.build.json",
+    "typecheck": "tsc --noEmit && tsc --noEmit --project sandbox/tsconfig.json && tsc --noEmit --project tests/tsconfig.json",
+    "lint": "biome check src sandbox scripts tests vite.config.ts playwright.config.ts",
+    "test": "playwright test",
+    "sandbox": "node scripts/sandbox.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@biomejs/biome": "2.5.14",
+    "@types/node": "22.20.3",
+    "jotai": "3.0.1",
+    "monaco-editor": "0.57.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.2",
+    "vite-plugin-css-injected-by-js": "5.0.2"
+  }
+}

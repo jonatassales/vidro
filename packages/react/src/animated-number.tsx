@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 export function AnimatedNumber({ value }: { value: number }) {
   const reducedMotion = useReducedMotion()
-  const [display, setDisplay] = useState(reducedMotion ? value : 0)
+  const [display, setDisplay] = useState(0)
 
   useEffect(() => {
     if (reducedMotion) {

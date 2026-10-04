@@ -8,7 +8,11 @@
       "!**/.turbo",
       "!**/coverage",
       "!packages/language/src/generated",
-      "!packages/language/syntaxes"
+      "!packages/language/syntaxes",
+      "!packages/editor",
+      "!apps/website/public/playground",
+      "!apps/website/public/hero-editor",
+      "!apps/website/public/editor-api.md"
     ]
   },
   "formatter": {

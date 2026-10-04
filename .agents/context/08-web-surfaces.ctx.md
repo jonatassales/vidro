@@ -1,3 +1,5 @@
+> Historical compiler-era context. The editor and website pivot is governed by [09-editor-product.ctx.md](09-editor-product.ctx.md). Retain this record for legacy packages only.
+
 # Web surfaces
 
 Stable decisions for the public website and documentation. Website language support is unrelated to the Vidro environment DSL.

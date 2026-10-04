@@ -1,0 +1,99 @@
+
+> vidro-workspace@0.0.0 test /Users/sky/code/vidro
+> pnpm --filter vidro build && pnpm --filter vidro test --workers=2
+
+
+> vidro@0.1.0-preview.0 build /Users/sky/code/vidro/packages/editor
+> vite build && tsc --project tsconfig.build.json
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 1087 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/editor.worker-DCsyOe9x.js    303.95 kB
+dist/assets/json.worker-CAiVr-gV.js      433.31 kB
+dist/assets/jsonMode.js                    0.69 kB │ gzip:   0.35 kB
+dist/assets/javascript.js                  0.90 kB │ gzip:   0.53 kB
+dist/assets/configuration.js               2.12 kB │ gzip:   0.93 kB
+dist/assets/markdown.js                    5.07 kB │ gzip:   1.62 kB
+dist/assets/css.js                         5.86 kB │ gzip:   1.58 kB
+dist/assets/typescript.js                  6.02 kB │ gzip:   2.16 kB
+dist/assets/html.js                        6.17 kB │ gzip:   1.38 kB
+dist/index.js                              8.30 kB │ gzip:   2.71 kB
+dist/assets/runtime.js                 1,948.14 kB │ gzip: 483.31 kB
+dist/assets/editor.api.js              3,337.31 kB │ gzip: 773.66 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0m../../node_modules/.pnpm/monaco-editor@0.57.0/node_modules/monaco-editor/esm/vs/languages/features/json/jsonMode.js is dynamically imported by ../../node_modules/.pnpm/monaco-editor@0.57.0/node_modules/monaco-editor/esm/vs/languages/features/json/register.js, src/runtime.ts but also statically imported by src/runtime.ts, dynamic import will not move module into another chunk.
+
+✓ built in 511ms
+
+> vidro@0.1.0-preview.0 test /Users/sky/code/vidro/packages/editor
+> playwright test --workers=2
+
+[WebServer] (node:23454) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `pnpm --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:23466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 53 tests using 2 workers
+
+(node:23472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/change-events.spec.ts:3:1 › user edits publish an immediate canonical change through the public DOM event (1.7s)
+  ✓   2 tests/composition.spec.ts:3:1 › browser composition keeps user changes immediate and suspends zero-delay leave (1.8s)
+  ✓   3 tests/change-events.spec.ts:36:1 › external changes notify once after first readiness, including while detached (710ms)
+  ✓   4 tests/composition.spec.ts:52:1 › composition end starts a fresh quiet interval using delay changed during composition (1.4s)
+  ✓   5 tests/change-events.spec.ts:113:1 › Jotai draft follows immediate public changes and echoes safely (838ms)
+  ✓   7 tests/change-events.spec.ts:132:1 › a user edit preserves the BOM, Unicode, whitespace, and final-newline choice (878ms)
+  ✓   6 tests/composition.spec.ts:111:1 › a replacement during composition cancels the old editing session (1.0s)
+  ✓   9 tests/composition.spec.ts:166:1 › composition without a content change creates no editing session (925ms)
+  ✓   8 tests/change-events.spec.ts:160:1 › keyboard, cut, paste, undo, and redo changes keep user origin (1.1s)
+  ✓  11 tests/change-events.spec.ts:204:1 › canonical echoes preserve undo while different replacement discards old history (873ms)
+  ✓  10 tests/composition.spec.ts:207:1 › removal during composition cancels pending completion and late input (1.0s)
+  ✓  12 tests/change-events.spec.ts:244:1 › nested external replacement wins without relabeling an already dispatched user snapshot (875ms)
+  ✓  13 tests/composition.spec.ts:264:1 › nested start and leave listeners keep historical detail while replacement wins (1.1s)
+  ✓  14 tests/lifecycle.spec.ts:4:1 › readiness belongs to one connection and old settled promises keep their result (704ms)
+  ✓  15 tests/composition.spec.ts:321:1 › a start listener can remove and remount without continuing the old edit (985ms)
+  ✓  16 tests/lifecycle.spec.ts:56:1 › a failed runtime asset request rejects one connection and reconnect retries from retained state (665ms)
+  ✓  17 tests/composition.spec.ts:382:1 › configuration changes inside start use current settings without reviving stale work (819ms)
+  ✓  18 tests/lifecycle.spec.ts:134:1 › disconnect aborts pending readiness without preventing a second editor from becoming ready (904ms)
+  ✓  20 tests/lifecycle.spec.ts:236:1 › an invalid pre-registration property fails one attempt without shadowing a valid retry (769ms)
+  ✓  19 tests/playground.spec.ts:3:1 › the workbench loads four public presets with editing disabled (974ms)
+  ✓  21 tests/lifecycle.spec.ts:280:1 › readiness mounts the latest retained value after delayed runtime preparation (905ms)
+  ✓  22 tests/playground.spec.ts:84:1 › shared controls update every preview while comparisons remain read only (1.8s)
+  ✓  23 tests/lifecycle.spec.ts:336:1 › DOM moves retain public state and listeners but reset history and pending sessions (1.5s)
+  ✓  24 tests/playground.spec.ts:170:1 › source and file forms apply through their public properties (1.2s)
+  ✓  25 tests/presets.spec.ts:3:1 › pre-registration preset properties upgrade and reconnect without replay (682ms)
+  ✓  26 tests/public-package.spec.ts:3:1 › browser import registers without starting Monaco before connection (73ms)
+  ✓  27 tests/presets.spec.ts:75:1 › new properties validate atomically and retain independent file snapshots (68ms)
+  ✓  28 tests/public-package.spec.ts:16:1 › built package registers a ready editor with canonical initial text (800ms)
+  ✓  29 tests/presets.spec.ts:169:1 › default is read only until editing is explicitly enabled (928ms)
+  ✓  30 tests/public-package.spec.ts:50:1 › public element accepts user editing and retains text after remount (815ms)
+  ✓  31 tests/presets.spec.ts:200:1 › header controls copy modified text and select syntax without edit events (998ms)
+  ✓  32 tests/public-package.spec.ts:87:1 › pre-registration properties upgrade without accessor shadowing (877ms)
+  ✓  33 tests/presets.spec.ts:288:1 › diff list supports multiple expansions, local language, counts, and per-file copy (1.0s)
+  ✓  34 tests/public-package.spec.ts:111:1 › required package worker assets load through the consumer server (738ms)
+  ✓  36 tests/public-package.spec.ts:146:1 › configuration attributes do not initialize editors and instances own their text (735ms)
+  ✓  35 tests/presets.spec.ts:401:1 › single-document preset switches retain undo and a pending completion while diffs stay read only (1.3s)
+  ✓  37 tests/theme.spec.ts:3:1 › one requested theme follows existing, new, and reconnected editors (960ms)
+  ✓  38 tests/presets.spec.ts:459:1 › entering the list from an editing callback cancels the old session safely (904ms)
+  ✓  39 tests/theme.spec.ts:78:1 › dark selected before connection, invalid requests, and independent frame overrides (832ms)
+  ✓  41 tests/theme.spec.ts:136:1 › forced colors preserves the requested mode and overrides frame colors (779ms)
+  ✓  42 tests/theme.spec.ts:189:1 › theme and frame updates preserve text, undo, and editing notifications (862ms)
+  ✓  40 tests/presets.spec.ts:504:1 › cards fit changed content and honor explicit height and max-height constraints (2.2s)
+  ✓  44 tests/presets.spec.ts:589:1 › a constrained file list scrolls past an expanded comparison (1.5s)
+  ✓  43 tests/theme.spec.ts:237:1 › glass surfaces preserve sharp text across presets and file layouts (1.6s)
+  ✓  46 tests/theme.spec.ts:403:1 › native dark editor pixels return after forced colors ends (1.1s)
+  ✓  45 tests/typing-sessions.spec.ts:3:1 › user edits start one session and publish one idle completion after changes (2.0s)
+  ✓  47 tests/typing-sessions.spec.ts:80:1 › a different external value or removal cancels pending completion without replay (1.1s)
+  ✓  48 tests/typing-sessions.spec.ts:136:1 › a start listener replacement invalidates the old user continuation (747ms)
+  ✓  49 tests/typing-sessions.spec.ts:175:1 › zero debounce remains asynchronous and invalid configuration preserves the active session (682ms)
+  ✓  50 tests/typing-sessions.spec.ts:234:1 › a delay change uses the last edit deadline while non-editing interaction leaves it alone (1.6s)
+  ✓  51 tests/typing-sessions.spec.ts:277:1 › same-value echoes preserve the session and a change listener can cancel it (1.0s)
+  ✓  52 tests/typing-sessions.spec.ts:325:1 › debounce accepts the full integer range and rejects unsupported values without mutation (68ms)
+  ✓  53 tests/typing-sessions.spec.ts:367:1 › another edit extends the quiet interval while focus and selection changes do not (1.5s)
+
+  53 passed (33.5s)

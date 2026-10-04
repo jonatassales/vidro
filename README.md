@@ -1,49 +1,25 @@
 # Vidro
 
-A declarative environment compiler.
+An embeddable code editor with a little glass.
 
-Vidro turns one project-level configuration into the environment files required by the targets in a repository.
+Vidro provides a framework-independent `<vidro-editor>` Web Component: ordinary code, unified differences, split comparisons, and file lists. It includes seven syntax modes, light/dark themes, semantic editing events, and a supported styling API.
 
-> Status: pre-alpha. The repository currently defines the language, compiler boundaries, CLI surface, and agent context before the first functional compiler implementation.
+## Workspace
 
-## Direction
+- [`packages/editor`](packages/editor/README.md): the `vidro` package, public browser tests, and playground source.
+- [`apps/website`](apps/website/README.md): the branded Next.js page, embedded playground, R$ 3 one-time pricing, and footer.
+- `packages/design-system` and `packages/react`: shared website branding and UI.
 
-```text
-.vidro/<project>.vidro
-        ↓
-      Langium
-        ↓
-       AST
-        ↓
- semantic validation
-        ↓
-     Vidro IR
-        ↓
-      emitters
-        ↓
-      .env*
-```
+## Develop
 
-The generated/intermediate representation belongs under `.vidro/.generated/`. The `.vidro` source remains the source of truth.
+Use the repository's Node and pnpm versions, then run `pnpm install` and `pnpm sandbox`. The command builds and watches the editor and serves the website at http://127.0.0.1:3000.
 
-## Monorepo
+Use `pnpm sandbox --preview --port 3001` for production verification. `pnpm build`, `pnpm typecheck`, `pnpm lint`, and `pnpm test` validate the active editor/website product. The editor's original standalone browser fixtures remain inside its package.
 
-- `apps/website` — public single-page website.
-- `apps/docs` — public Nextra documentation.
-- `packages/language` — Vidro DSL implemented with Langium.
-- `packages/core` — IR, compiler contracts, detection, and emitters.
-- `packages/cli` — `vidro` CLI and repository scaffolding.
-- `packages/design-system` — shared visual tokens.
-- `packages/react` — shared React UI used by the website and docs.
+The website keeps its existing Vidro branding and four locales. Its playground exposes all four presets and the full public controls through built package exports. Pricing is **R$ 3, paid once**; configure `NEXT_PUBLIC_VIDRO_CHECKOUT_URL` with an HTTPS checkout link to enable the purchase action. Until then, the pricing card opens the live playground.
 
-Repository guidance and product decisions live in [`.agents/`](.agents/README.md).
+Vercel's existing `vidro-website` project continues using `apps/website`. No live deployment is implied by local builds.
 
-## Planned CLI
+## Product history
 
-```bash
-vidro init
-vidro generate
-vidro validate
-vidro check
-vidro show
-```
+The environment compiler, CLI, and legacy documentation are retained in their existing directories for reference. They are outside the current website/editor build and no longer define the Vidro product. See [.agents/context/09-editor-product.ctx.md](.agents/context/09-editor-product.ctx.md).

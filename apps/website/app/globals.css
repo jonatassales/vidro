@@ -22,9 +22,3 @@ body {
     transform: translateX(-50%);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-\[vidro-marquee_32s_linear_infinite\] {
-    animation: none;
-  }
-}

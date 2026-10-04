@@ -1,3 +1,5 @@
+> Superseded for the current website by [the editor product pivot](../context/09-editor-product.ctx.md). Its compiler/docs-specific restrictions apply only to retained legacy surfaces.
+
 # 006 — Web surfaces
 
 Scope: `apps/website`, `apps/docs`, `packages/design-system`, `packages/react`.

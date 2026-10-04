@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vidro themes and frames</title>
+    <style>
+      body { margin: 24px; font: 14px/1.5 Arial, sans-serif; background: #fafafa; color: #171717; }
+      #controls { display: flex; gap: 8px; margin-bottom: 16px; }
+      #editors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      vidro-editor { display: block; width: 100%; height: 260px; }
+      .frame-override { --vidro-frame-background: #f5f1ff; --vidro-frame-border-color: #7928ca; --vidro-frame-border-radius: 20px; --vidro-frame-shadow: 0 2px 8px #7928ca33; --vidro-focus-ring-color: #7928ca; }
+      @media (max-width: 650px) { #editors { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <h1>Vidro themes and frames</h1>
+    <div id="controls">
+      <button id="light" type="button">Light</button>
+      <button id="dark" type="button">Dark</button>
+      <button id="reconnect" type="button">Reconnect second</button>
+      <button id="unsupported" type="button">Try unsupported theme</button>
+      <button id="wrong-type" type="button">Try numeric theme</button>
+      <output id="theme-result" aria-live="polite"></output>
+    </div>
+    <div id="editors"><div id="first-slot"></div><div id="second-slot"></div></div>
+    <script type="module" src="./theme.ts"></script>
+  </body>
+</html>

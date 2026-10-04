@@ -15,17 +15,17 @@ const plexMono = IBM_Plex_Mono({
   variable: '--font-plex-mono',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://vidro.pro'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Vidro — One source. Every environment.',
+  title: 'Vidro — A clear view of your code.',
   description:
-    'Vidro compiles one declarative configuration into the environment files your projects need.',
+    'An embeddable code editor with four presets, crisp syntax highlighting, and subtle glass styling.',
   openGraph: {
-    title: 'Vidro — One source. Every environment.',
+    title: 'Vidro — A clear view of your code.',
     description:
-      'Vidro compiles one declarative configuration into the environment files your projects need.',
+      'An embeddable code editor with four presets, crisp syntax highlighting, and subtle glass styling.',
     type: 'website',
     siteName: 'Vidro',
   },
@@ -34,7 +34,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html className={`${plexSans.variable} ${plexMono.variable}`} lang="en">
-      <body className="min-h-dvh bg-background font-sans text-foreground antialiased">{children}</body>
+      <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
     </html>
   )
 }

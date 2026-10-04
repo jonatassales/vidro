@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Vidro — Sandbox</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1 class="wordmark">Vidro <span>Sandbox</span></h1>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 13a9 9 0 0 1-9.8-9.8A9 9 0 1 0 20.8 13Z" /></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
+    </header>
+    <main class="workbench">
+      <aside class="settings" aria-label="Shared editor settings">
+        <div class="settings-intro"><h2>Make it yours.</h2><p>Adjust all four previews together.</p></div>
+        <form id="settings-form">
+          <fieldset>
+            <legend>Behavior</legend>
+            <label class="toggle-row"><span>Edit default preset</span><input id="control-editable" type="checkbox" /></label>
+            <p class="field-note">Editing is off by default. Comparisons always stay read only.</p>
+            <label class="field">Language<select id="control-language"></select></label>
+            <label class="field">Idle delay <span class="unit">ms</span><input id="control-debounceMs" type="number" min="0" max="2147483647" step="1" value="500" /></label>
+          </fieldset>
+          <fieldset>
+            <legend>Header</legend>
+            <label class="toggle-row"><span>Show header</span><input id="control-header" type="checkbox" checked /></label>
+            <label class="toggle-row"><span>Copy button</span><input id="control-clipboard" type="checkbox" checked /></label>
+            <label class="toggle-row"><span>Language selector</span><input id="control-languageSelector" type="checkbox" /></label>
+            <label class="field">Title<input id="control-headerTitle" type="text" placeholder="Optional shared title" /></label>
+            <label class="field">Icon URL or path<input id="control-icon" type="text" placeholder="No icon" /></label>
+            <button id="sample-icon" class="text-button" type="button">Use sample icon</button>
+          </fieldset>
+          <details class="settings-section" open>
+            <summary>Typography</summary>
+            <div class="settings-section-body">
+              <label class="field">Font family<input id="control-fontFamily" type="text" spellcheck="false" /></label>
+              <div class="field-pair">
+                <label class="field">Size <span class="unit">px</span><input id="control-fontSize" type="number" min="6" max="100" step="0.5" value="14" /></label>
+                <label class="field">Line height <span class="unit">px</span><input id="control-lineHeight" type="number" min="8" max="150" step="1" value="20" /></label>
+              </div>
+            </div>
+          </details>
+          <details class="settings-section">
+            <summary>Frame & layout</summary>
+            <div class="settings-section-body">
+              <label class="field">Background<input data-frame="background" type="text" placeholder="Theme default" /></label>
+              <label class="field">Border color<input data-frame="border-color" type="text" placeholder="Theme default" /></label>
+              <label class="field">Corner radius<input data-frame="border-radius" type="text" placeholder="12px" /></label>
+              <label class="field">Shadow<input data-frame="shadow" type="text" placeholder="none" /></label>
+              <label class="field">Focus ring color<input data-frame="focus-ring-color" type="text" placeholder="Theme default" /></label>
+              <label class="field">Preview max height <span class="unit">px</span><input id="preview-height" type="number" min="120" max="1200" step="20" placeholder="Fit content" /></label>
+              <p class="field-note">Dimensions belong to the page. Clear the height to fit content.</p>
+            </div>
+          </details>
+          <output id="settings-feedback" class="feedback" aria-live="polite"></output>
+          <button id="reset-settings" class="secondary-button" type="button">Reset settings</button>
+        </form>
+      </aside>
+      <section class="previews" aria-label="Preset previews">
+        <div class="previews-intro"><p>One component. Four perspectives.</p><span class="package-badge">0.1 preview</span></div>
+        <div id="preview-grid" class="preview-grid"></div>
+      </section>
+    </main>
+    <footer class="page-footer">Built with the public Vidro package.<span>Syntax highlighting does not validate your code.</span></footer>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

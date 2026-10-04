@@ -469,15 +469,19 @@ height.addEventListener('change', () =>
   }),
 )
 
-let theme: VidroTheme = 'light'
+let theme: VidroTheme = embedded ? 'dark' : 'light'
 const themeToggle = query<HTMLButtonElement>('#theme-toggle')
-themeToggle.addEventListener('click', () => {
-  theme = theme === 'light' ? 'dark' : 'light'
+function applyTheme() {
   setTheme(theme)
   document.documentElement.dataset.theme = theme
   const label = `Switch to ${theme === 'light' ? 'dark' : 'light'} theme`
   themeToggle.setAttribute('aria-label', label)
   themeToggle.title = label
+}
+applyTheme()
+themeToggle.addEventListener('click', () => {
+  theme = theme === 'light' ? 'dark' : 'light'
+  applyTheme()
 })
 
 query<HTMLButtonElement>('#reset-settings').addEventListener('click', () => {

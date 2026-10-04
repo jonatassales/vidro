@@ -8,6 +8,7 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "plugins": [{ "name": "next" }],
     "allowJs": true,
+    "resolveJsonModule": true,
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

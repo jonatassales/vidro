@@ -7,6 +7,7 @@ import {
   VidroLogo,
 } from '@vidro/react'
 import type { HomeLocale } from '@vidro/react/locale'
+import { BlurOutUp } from './blur-out-up'
 import { EditorPlayground } from './editor-playground'
 import { Footer } from './footer'
 import { FrameworkMarquee } from './framework-marquee'
@@ -63,10 +64,10 @@ export function HomeExperience({ locale }: { locale: HomeLocale }) {
               className="text-[3.5rem] font-medium leading-none tracking-[-0.05em] sm:text-[5rem]"
               id="hero-title"
             >
-              Vidro
+              <BlurOutUp>Vidro</BlurOutUp>
             </h1>
             <p className="mt-5 text-balance text-xl font-medium leading-snug sm:text-2xl">
-              {copy.slogan}
+              <BlurOutUp>{copy.slogan}</BlurOutUp>
             </p>
             <HeroEditor copy={copy} />
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted">
@@ -85,7 +86,7 @@ export function HomeExperience({ locale }: { locale: HomeLocale }) {
                 <CopyButton label={copy.copyImport} text="import 'vidro'" />
               </div>
             </div>
-            <FrameworkMarquee copy={copy} />
+            <FrameworkMarquee />
           </div>
         </section>
         <EditorPlayground copy={copy} />

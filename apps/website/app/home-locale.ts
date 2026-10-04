@@ -5,8 +5,6 @@ export interface HomeCopy {
   slogan: string
   description: string
   tryEditor: string
-  pauseCarousel: string
-  resumeCarousel: string
   heroEditorTitle: string
   playgroundLabel: string
   playgroundTitle: string
@@ -34,8 +32,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     description:
       'Vidro is an embeddable Web Component code editor with a little glass. Edit, compare, and explore changes with four thoughtful presets, crisp syntax, and light and dark themes.',
     tryEditor: 'Try the editor',
-    pauseCarousel: 'Pause carousel',
-    resumeCarousel: 'Resume carousel',
     heroEditorTitle: 'Vidro code editor preview',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Make it your own.',
@@ -69,8 +65,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     description:
       'Um editor de código com um toque de vidro. Edite, compare e explore mudanças com quatro modos, sintaxe nítida e temas claro e escuro.',
     tryEditor: 'Experimente o editor',
-    pauseCarousel: 'Pausar carrossel',
-    resumeCarousel: 'Retomar carrossel',
     heroEditorTitle: 'Prévia do editor Vidro',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Do seu jeito.',
@@ -104,8 +98,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     description:
       'Vidro 是带有轻盈玻璃质感的 Web Component 代码编辑器。四种预设、清晰的语法高亮，以及明暗主题，让编辑与比较更加直观。',
     tryEditor: '体验编辑器',
-    pauseCarousel: '暂停轮播',
-    resumeCarousel: '继续轮播',
     heroEditorTitle: 'Vidro 代码编辑器预览',
     playgroundLabel: '体验区',
     playgroundTitle: '打造你的编辑体验。',
@@ -137,8 +129,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     description:
       'Vidro は、ほのかなガラスの質感を持つ Web Component コードエディター。4つのプリセット、鮮明な構文表示、ライト・ダークテーマで編集や比較を快適に。',
     tryEditor: 'エディターを試す',
-    pauseCarousel: 'カルーセルを一時停止',
-    resumeCarousel: 'カルーセルを再開',
     heroEditorTitle: 'Vidro コードエディターのプレビュー',
     playgroundLabel: 'プレイグラウンド',
     playgroundTitle: 'あなたらしい使い心地に。',

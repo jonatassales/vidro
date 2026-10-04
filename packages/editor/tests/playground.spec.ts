@@ -90,6 +90,7 @@ test('shared controls update every preview while comparisons remain read only', 
   await page.locator('#control-language').selectOption('javascript')
   await page.locator('#control-languageSelector').check()
   await page.locator('#control-clipboard').uncheck()
+  await page.getByText('Typography', { exact: true }).click()
   await page.locator('#control-fontSize').fill('16')
   await page.locator('#control-lineHeight').fill('24')
   await page.locator('#control-lineHeight').blur()

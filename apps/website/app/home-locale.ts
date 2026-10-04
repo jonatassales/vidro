@@ -10,8 +10,6 @@ export interface HomeCopy {
   pauseCarousel: string
   resumeCarousel: string
   heroEditorTitle: string
-  switchToDark: string
-  switchToLight: string
   playgroundLabel: string
   playgroundTitle: string
   playgroundDescription: string
@@ -41,8 +39,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     pauseCarousel: 'Pause carousel',
     resumeCarousel: 'Resume carousel',
     heroEditorTitle: 'Vidro code editor preview',
-    switchToDark: 'Switch editor to dark theme',
-    switchToLight: 'Switch editor to light theme',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Make it your own.',
     playgroundDescription:
@@ -78,8 +74,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     pauseCarousel: 'Pausar carrossel',
     resumeCarousel: 'Retomar carrossel',
     heroEditorTitle: 'Prévia do editor Vidro',
-    switchToDark: 'Mudar editor para o tema escuro',
-    switchToLight: 'Mudar editor para o tema claro',
     playgroundLabel: 'Playground',
     playgroundTitle: 'Do seu jeito.',
     playgroundDescription:
@@ -115,8 +109,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     pauseCarousel: '暂停轮播',
     resumeCarousel: '继续轮播',
     heroEditorTitle: 'Vidro 代码编辑器预览',
-    switchToDark: '将编辑器切换为深色主题',
-    switchToLight: '将编辑器切换为浅色主题',
     playgroundLabel: '体验区',
     playgroundTitle: '打造你的编辑体验。',
     playgroundDescription:
@@ -150,8 +142,6 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     pauseCarousel: 'カルーセルを一時停止',
     resumeCarousel: 'カルーセルを再開',
     heroEditorTitle: 'Vidro コードエディターのプレビュー',
-    switchToDark: 'エディターをダークテーマに切り替える',
-    switchToLight: 'エディターをライトテーマに切り替える',
     playgroundLabel: 'プレイグラウンド',
     playgroundTitle: 'あなたらしい使い心地に。',
     playgroundDescription:

@@ -4,12 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import type { HomeCopy } from './home-locale'
 import { useFrameRevisionReload } from './use-frame-revision-reload'
 
-type Theme = 'light' | 'dark'
-
 export function HeroEditor({ copy }: { copy: HomeCopy }) {
   const frame = useRef<HTMLIFrameElement>(null)
-  const [theme, setTheme] = useState<Theme>('light')
-  const [height, setHeight] = useState(242)
+  const visible = useRef(false)
+  const [height, setHeight] = useState(290)
 
   useFrameRevisionReload(frame, '/hero-editor/revision.json')
 
@@ -29,27 +27,26 @@ export function HeroEditor({ copy }: { copy: HomeCopy }) {
   }, [])
 
   useEffect(() => {
-    const preference = window.matchMedia('(prefers-color-scheme: dark)')
-    const syncTheme = () => setTheme(preference.matches ? 'dark' : 'light')
-    syncTheme()
-    preference.addEventListener('change', syncTheme)
-    return () => preference.removeEventListener('change', syncTheme)
+    const target = frame.current
+    if (!target) return
+    const observer = new IntersectionObserver(([entry]) => {
+      visible.current = Boolean(entry?.isIntersecting)
+      target.contentWindow?.postMessage(
+        { type: 'vidro-hero-playback', visible: visible.current },
+        window.location.origin,
+      )
+    })
+    observer.observe(target)
+    return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    frame.current?.contentWindow?.postMessage(
-      { type: 'vidro-hero-theme', theme },
-      window.location.origin,
-    )
-  }, [theme])
 
   return (
     <div className="mt-8 w-full max-w-[42rem] text-left">
       <iframe
-        className="block w-full border-0"
+        className="block w-full border-0 bg-transparent [color-scheme:light]"
         onLoad={() =>
           frame.current?.contentWindow?.postMessage(
-            { type: 'vidro-hero-theme', theme },
+            { type: 'vidro-hero-playback', visible: visible.current },
             window.location.origin,
           )
         }

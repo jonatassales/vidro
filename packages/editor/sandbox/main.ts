@@ -9,6 +9,8 @@ import fileIcon from './assets/file.svg'
 import './style.css'
 
 type Editor = HTMLElementTagNameMap['vidro-editor']
+const embedded = new URLSearchParams(location.search).get('embed') === '1'
+if (embedded) document.documentElement.dataset.embedded = 'true'
 const languages: readonly VidroLanguage[] = [
   'plaintext',
   'json',
@@ -72,8 +74,7 @@ const presets: readonly {
   {
     preset: 'default',
     title: 'Default',
-    description:
-      'A clean code surface. Enable editing to try the event lifecycle.',
+    description: 'A clean code surface. Enable editing to make it your own.',
     headerTitle: 'greeting.ts',
   },
   {
@@ -352,20 +353,18 @@ const editors = presets.map(({ preset, title, description, headerTitle }) => {
   editor.value = modified
   editor.originalValue = original
   if (preset === 'diff-list') editor.files = initialFiles
-  const tools = element('div', 'card-tools')
-  tools.append(
-    preset === 'diff-list'
-      ? fileControls(editor)
-      : sourceControls(editor, preset),
-    eventLog(editor),
-  )
   slot.append(editor)
-  card.append(
-    heading,
-    element('p', 'preset-description', description),
-    slot,
-    tools,
-  )
+  card.append(heading, element('p', 'preset-description', description), slot)
+  if (!embedded) {
+    const tools = element('div', 'card-tools')
+    tools.append(
+      preset === 'diff-list'
+        ? fileControls(editor)
+        : sourceControls(editor, preset),
+      eventLog(editor),
+    )
+    card.append(tools)
+  }
   grid.append(card)
   return editor
 })
@@ -516,8 +515,7 @@ try {
 }
 
 // The website embeds this built public-package playground as one page section.
-if (new URLSearchParams(location.search).get('embed') === '1') {
-  document.documentElement.dataset.embedded = 'true'
+if (embedded) {
   const wordmark = document.querySelector('.wordmark')
   if (wordmark) wordmark.textContent = 'Live preview'
   function reportSize() {

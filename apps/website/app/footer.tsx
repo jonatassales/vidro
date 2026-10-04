@@ -7,6 +7,7 @@ import { VidroLogo } from '@vidro/react'
 import { motion, useReducedMotion } from 'motion/react'
 import Image from 'next/image'
 import type { HomeCopy } from './home-locale'
+import { SocialLinks } from './social-links'
 
 const backingLinks = [
   {
@@ -23,7 +24,7 @@ const backingLinks = [
   {
     label: 'Monaco',
     href: 'https://microsoft.github.io/monaco-editor/',
-    icon: '/backed-by/monaco.svg',
+    icon: '/backed-by/microsoft.svg',
   },
   {
     label: 'Codex',
@@ -34,7 +35,6 @@ const backingLinks = [
 
 export function Footer({ copy }: { copy: HomeCopy }) {
   const reduceMotion = useReducedMotion()
-  const socialLinks = ['LinkedIn', 'X', 'Twitter', 'GitHub', 'Instagram']
 
   return (
     <footer className="border-t border-line bg-white/40">
@@ -85,23 +85,23 @@ export function Footer({ copy }: { copy: HomeCopy }) {
             <h2 className="mb-5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted">
               {copy.backedBy}
             </h2>
-            <ul className="flex flex-wrap gap-2">
+            <ul className="space-y-3">
               {backingLinks.map(({ label, href, icon }) => (
                 <li key={label}>
                   <a
-                    aria-label={label}
-                    className={`inline-grid size-10 place-items-center rounded-lg border border-line transition-colors hover:border-ice-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground ${label === 'SmoothUI' ? 'bg-foreground hover:bg-foreground/85' : 'bg-white/60 hover:bg-white'}`}
+                    className="inline-flex items-center gap-2 rounded-sm text-sm text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4"
                     href={href}
                     title={label}
                   >
                     <Image
                       alt=""
-                      className="size-6 object-contain"
-                      height={24}
+                      className={`size-[18px] shrink-0 object-contain ${label === 'SmoothUI' ? 'invert' : ''}`}
+                      height={18}
                       src={icon}
                       unoptimized
-                      width={24}
+                      width={18}
                     />
+                    {label}
                   </a>
                 </li>
               ))}
@@ -126,21 +126,7 @@ export function Footer({ copy }: { copy: HomeCopy }) {
             </a>
             <span>Neongate © 2026</span>
           </p>
-          <nav
-            aria-label={copy.socialLinks}
-            className="flex flex-wrap items-center gap-x-4 gap-y-2"
-            id="social-links"
-          >
-            {socialLinks.map((label) => (
-              <a
-                className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-                href="#social-links"
-                key={label}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+          <SocialLinks label={copy.socialLinks} />
         </div>
       </div>
     </footer>

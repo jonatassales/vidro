@@ -274,14 +274,6 @@ body {
   color: var(--page-body);
   font-size: 13px;
 }
-.package-badge {
-  padding: 3px 7px;
-  border: 1px solid var(--page-line);
-  border-radius: 5px;
-  color: var(--page-muted);
-  font-family: var(--page-mono);
-  font-size: 10px;
-}
 .preview-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

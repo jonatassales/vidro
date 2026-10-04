@@ -6,7 +6,13 @@
 • Packages in scope: @vidro/design-system, @vidro/react, @vidro/website, vidro
 • Running typecheck in 4 packages
 • Remote caching disabled
-vidro:build: cache hit, replaying logs c803d537f826b0dd
+@vidro/design-system:typecheck: cache hit, replaying logs 4badc11730bf0029
+@vidro/design-system:build: cache hit, replaying logs 28ca823a5dfd95b9
+vidro:build: cache hit, replaying logs e4f78a86c65a72b9
+@vidro/design-system:build:
+@vidro/design-system:build: > @vidro/design-system@0.0.0 build /Users/sky/code/vidro/packages/design-system
+@vidro/design-system:build: > tsc -p tsconfig.json
+@vidro/design-system:build:
 vidro:build:
 vidro:build: > vidro@0.1.0-preview.0 build /Users/sky/code/vidro/packages/editor
 vidro:build: > vite build && tsc --project tsconfig.build.json
@@ -31,38 +37,32 @@ vidro:build: dist/assets/editor.api.js              3,337.31 kB │ gzip: 773.66
 vidro:build:
 vidro:build: [33m[INEFFECTIVE_DYNAMIC_IMPORT] [0m../../node_modules/.pnpm/monaco-editor@0.57.0/node_modules/monaco-editor/esm/vs/languages/features/json/jsonMode.js is dynamically imported by ../../node_modules/.pnpm/monaco-editor@0.57.0/node_modules/monaco-editor/esm/vs/languages/features/json/register.js, src/runtime.ts but also statically imported by src/runtime.ts, dynamic import will not move module into another chunk.
 vidro:build:
-vidro:build: ✓ built in 494ms
-@vidro/design-system:build: cache hit, replaying logs 28ca823a5dfd95b9
-@vidro/design-system:build:
-@vidro/design-system:build: > @vidro/design-system@0.0.0 build /Users/sky/code/vidro/packages/design-system
-@vidro/design-system:build: > tsc -p tsconfig.json
-@vidro/design-system:build:
+vidro:build: ✓ built in 610ms
+@vidro/design-system:typecheck:
+@vidro/design-system:typecheck: > @vidro/design-system@0.0.0 typecheck /Users/sky/code/vidro/packages/design-system
+@vidro/design-system:typecheck: > tsc --noEmit -p tsconfig.json
+@vidro/design-system:typecheck:
 @vidro/react:build: cache hit, replaying logs 535d4eca21576e3a
 @vidro/react:build:
 @vidro/react:build: > @vidro/react@0.0.0 build /Users/sky/code/vidro/packages/react
 @vidro/react:build: > tsc -p tsconfig.json
 @vidro/react:build:
-@vidro/website:typecheck: cache miss, executing 870a1e44a2fcda93
-@vidro/design-system:typecheck: cache hit, replaying logs 4badc11730bf0029
-vidro:typecheck: cache hit, replaying logs 44ecc98c4e9bd298
-@vidro/design-system:typecheck:
-@vidro/design-system:typecheck: > @vidro/design-system@0.0.0 typecheck /Users/sky/code/vidro/packages/design-system
-@vidro/design-system:typecheck: > tsc --noEmit -p tsconfig.json
-@vidro/design-system:typecheck:
 @vidro/react:typecheck: cache hit, replaying logs ac7e00efe087d74f
-vidro:typecheck:
-vidro:typecheck: > vidro@0.1.0-preview.0 typecheck /Users/sky/code/vidro/packages/editor
-vidro:typecheck: > tsc --noEmit && tsc --noEmit --project sandbox/tsconfig.json && tsc --noEmit --project tests/tsconfig.json
-vidro:typecheck:
 @vidro/react:typecheck:
 @vidro/react:typecheck: > @vidro/react@0.0.0 typecheck /Users/sky/code/vidro/packages/react
 @vidro/react:typecheck: > tsc --noEmit -p tsconfig.json
 @vidro/react:typecheck:
+vidro:typecheck: cache hit, replaying logs fb29b4d8232f32b5
+@vidro/website:typecheck: cache hit, replaying logs c151d29f6105f1ba
+vidro:typecheck:
+vidro:typecheck: > vidro@0.1.0-preview.0 typecheck /Users/sky/code/vidro/packages/editor
+vidro:typecheck: > tsc --noEmit && tsc --noEmit --project sandbox/tsconfig.json && tsc --noEmit --project tests/tsconfig.json
+vidro:typecheck:
 @vidro/website:typecheck:
 @vidro/website:typecheck: > @vidro/website@0.0.0 typecheck /Users/sky/code/vidro/apps/website
 @vidro/website:typecheck: > tsc --noEmit
 @vidro/website:typecheck:
 
  Tasks:    7 successful, 7 total
-Cached:    6 cached, 7 total
-  Time:    1.551s
+Cached:    7 cached, 7 total
+  Time:    31ms >>> FULL TURBO

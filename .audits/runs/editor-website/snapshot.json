@@ -229,6 +229,7 @@
   "packages/editor/tests/vite.config.ts": "a62c132e5c20b88792e8dd1ebd15e1034b2317ea9b23aca31e3f0bbf0b96df80",
   "packages/editor/tsconfig.build.json": "f950d46d0fe29a79b39258c76d8bd0a968d3d31e0bb7c5c4a34d321c223dc2c4",
   "packages/editor/tsconfig.json": "c18c9c5db61d88470910f99f06c3068a536817fb13b7972f217db793beb03474",
+  "packages/editor/turbo.json": "d05d505f774cca44a579ebcea4bd51e61b54b7ed5907ae9bf19e49a4221e181b",
   "packages/editor/vite.config.ts": "1ceed736bda86558ed9dd21c4bf19f355a814dc7795bf56f4eb1aed1e7ed4319",
   "packages/language/langium-config.json": "07b9ff5138b926f1d1f6edf5394b4ec47ef14705decc62d537b1671ee02843f3",
   "packages/language/package.json": "196ada88790f3df0c6856a1fc36d5af4cab0c9a1d0f725c5538ac9c63ac7be4b",

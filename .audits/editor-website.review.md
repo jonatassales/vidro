@@ -8,7 +8,7 @@ Scope: [.artifacts/specs/0001-editor-website.spec.md](../.artifacts/specs/0001-e
 
 - Approved fixed review base: Git empty tree `4b825dc642cb6eb9a060e54bf8d69288fbee4904`.
 - Existing website HEAD and migration comparison: `40c801ad0fa84dd679df14d71d050b59e1c8783b`.
-- Relevant tracked/untracked source: **253 files**, manifest SHA256 `3eb9859bb690239d976618128c47e18022ef1a05ad780965f49e6da6ef3eacf8`.
+- Relevant tracked/untracked source: **254 files**, manifest SHA256 `34234a06d691e9d1d4702dfcb5f6aef232007931bec22f9c4287a691b07d388f`.
 - [Manifest](runs/editor-website/snapshot.json) excludes generated/ignored output and `.audits/` review artifacts.
 - Imported `packages/editor/src` matches the original editor source byte-for-byte. Its sandbox additionally implements website embedding and automatic height reporting.
 
@@ -18,6 +18,7 @@ Scope: [.artifacts/specs/0001-editor-website.spec.md](../.artifacts/specs/0001-e
 | --- | --- | --- |
 | Root `pnpm build` | Passed, four tasks | [Log](runs/editor-website/build.log) |
 | Root `pnpm typecheck` | Passed, seven dependency/task executions | [Log](runs/editor-website/typecheck.log) |
+| Clean-output typecheck graph | Passed with `packages/editor/dist` removed and Turbo cache bypassed; editor build finished before its sandbox/test typecheck | [Log](runs/editor-website/ci-clean-typecheck.log) |
 | Root `pnpm lint` | Passed, website/shared workspace and editor | [Log](runs/editor-website/lint.log) |
 | Development editor browser suite | 53 passed | [Log](runs/editor-website/test-development.log) |
 | Production editor browser suite | 53 passed | [Log](runs/editor-website/test-production.log) |
@@ -32,10 +33,10 @@ The website checks cover hero placement, content-sized frame, public editor read
 
 [Production desktop](runs/editor-website/production/desktop.png), [mobile](runs/editor-website/production/mobile.png), and [dark hero](runs/editor-website/frameworks/hero-dark.png) captures reflect the final layout. Earlier [dark playground](runs/editor-website/production/playground-dark.png), [forced colors](runs/editor-website/production/playground-forced-colors.png), and [mobile pricing](runs/editor-website/production/pricing-mobile.png) captures remain valid for those unchanged surfaces. Screenshots are local evidence, not owner acceptance.
 
-A development build race was corrected by bundling website consumers after editor compilation completes. Both frames share one revision-polling hook and refresh together after a watched build. A pre-existing GitHub counter hydration mismatch under reduced motion was corrected by making its initial server/client value identical. CI installs version-matched Chromium before the migrated browser suite. GitHub-hosted CI must be assessed on the PR; local checks do not establish its outcome.
+A development build race was corrected by bundling website consumers after editor compilation completes. Both frames share one revision-polling hook and refresh together after a watched build. A pre-existing GitHub counter hydration mismatch under reduced motion was corrected by making its initial server/client value identical. CI installs version-matched Chromium before the migrated browser suite. The first PR `verify` job exposed an editor typecheck race on clean checkout: the sandbox resolved package declarations before `vidro:build` finished. A package-scoped Turbo dependency now runs that build first. The forced clean-output reproduction and full local CI sequence pass; the updated GitHub job must still be assessed on the PR.
 
 Vite reports large Monaco chunks and its existing static/dynamic JSON import warning; builds succeed. The full playground remains lazy-loaded. Full Safari/Firefox/OS IME acceptance, a real checkout, package publication, owner visual acceptance, and a live Vercel deployment are not established by these local checks. The preview remains unfrozen.
 
 ## Standards and Spec
 
-Final independent Standards review: **0 hard violations, 0 actionable Fowler-smell findings**. The earlier P3 duplicated frame-polling observation was resolved with the shared hook; the earlier keyboard-pause issue was fixed with a focusable, translated control. Final independent Spec review: **0 findings**. Both reviewers verified all 253 source files against the working tree and staged index with no drift. Reviews were read-only and did not independently rerun tests.
+Final independent Standards review found **0 hard violations and 0 actionable Fowler-smell findings**. The earlier P3 duplicated frame-polling observation was resolved with the shared hook; the earlier keyboard-pause issue was fixed with a focusable, translated control. Final Spec review found **0 findings**. Both reviewers verified the 254-file snapshot against the working tree and staged index with no drift. Reviews were read-only and did not independently rerun tests.

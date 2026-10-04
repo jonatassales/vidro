@@ -26,7 +26,6 @@ export function FrameworkMarquee({ copy }: { copy: HomeCopy }) {
         <code className="rounded-full border border-line bg-white/70 px-2.5 py-1 font-mono text-xs text-foreground shadow-glass">
           {'<vidro-editor>'}
         </code>
-        <span className="text-xs text-muted">{copy.frameworks}</span>
       </div>
       <div className="relative w-full overflow-hidden py-1 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none]">
         <div
@@ -58,11 +57,39 @@ export function FrameworkMarquee({ copy }: { copy: HomeCopy }) {
         </div>
       </div>
       <button
-        className="mx-auto mt-2 block rounded-full border border-line/80 bg-white/70 px-3 py-1 font-mono text-[10px] text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground motion-reduce:hidden"
+        aria-label={paused ? copy.resumeCarousel : copy.pauseCarousel}
+        className="mx-auto mt-2 flex size-7 items-center justify-center rounded-full border border-line/80 bg-white/70 text-muted transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground motion-reduce:hidden"
         onClick={() => setPaused((current) => !current)}
         type="button"
       >
-        {paused ? copy.resumeCarousel : copy.pauseCarousel}
+        {paused ? (
+          <svg
+            aria-hidden="true"
+            className="size-3"
+            fill="none"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="m5 3 8 5-8 5V3Z"
+              stroke="currentColor"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            aria-hidden="true"
+            className="size-3"
+            fill="none"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5 3v10m6-10v10"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="1.5"
+            />
+          </svg>
+        )}
       </button>
     </div>
   )

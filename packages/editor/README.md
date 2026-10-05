@@ -2,6 +2,8 @@
 
 Vidro is a preview editor Web Component. Importing its browser package registers `<vidro-editor>`; an editor starts when the element connects.
 
+Vidro is proprietary commercial software. See the [interim proprietary notice](LICENCE.md) and separate [third-party notices](third-party/README.md). The notice is not a final commercial EULA and does not grant unresolved customer rights.
+
 ```ts
 import { setTheme } from 'vidro'
 

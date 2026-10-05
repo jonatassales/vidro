@@ -122,6 +122,8 @@ export function pageMetadata(
       description: copy.description,
       images: images?.twitter ?? [twitterImage],
     },
-    robots: page === 'policies' ? { index: false, follow: false } : indexRobots,
+    robots: ['terms', 'privacy', 'third-party'].includes(page)
+      ? { index: false, follow: true }
+      : indexRobots,
   }
 }

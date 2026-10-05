@@ -17,16 +17,34 @@
       "description": "Vidro の Web Component コードエディターをあらゆるフロントエンドに。4つのプリセット、構文表示、ファイル比較、ガラスの質感を持つライト・ダークテーマ。"
     }
   },
-  "lisense": {
-    "en": {
-      "title": "License — Vidro",
-      "description": "The MIT license for the Vidro Web Component code editor package."
-    }
-  },
   "policies": {
     "en": {
-      "title": "Policies — Vidro",
-      "description": "Placeholder for upcoming Vidro website policies."
+      "title": "Legal & Policies — Vidro",
+      "description": "Index of Vidro software licensing, purchase terms, privacy information, and third-party software notices."
+    }
+  },
+  "license": {
+    "en": {
+      "title": "License — Vidro",
+      "description": "Vidro's interim proprietary commercial software notice, Preview releases, and third-party software terms."
+    }
+  },
+  "terms": {
+    "en": {
+      "title": "Terms of Sale — Vidro",
+      "description": "Terms of Sale are being prepared for the first commercial Vidro Preview release."
+    }
+  },
+  "privacy": {
+    "en": {
+      "title": "Privacy — Vidro",
+      "description": "Privacy information is being prepared based on Vidro’s actual data flows and service providers."
+    }
+  },
+  "third-party": {
+    "en": {
+      "title": "Third-Party Software — Vidro",
+      "description": "Third-party software notice structure for Vidro. Review of distributed dependencies and bundled assets is in progress."
     }
   }
 }

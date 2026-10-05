@@ -3,6 +3,18 @@ import type { ReactNode } from 'react'
 import { Footer } from '../footer'
 import { HOME_COPY } from '../home-locale'
 
+const legalLinks = [
+  { href: '/policies/', label: 'Legal & Policies', title: 'Legal & Policies' },
+  { href: '/license/', label: 'License', title: 'License' },
+  { href: '/terms/', label: 'Terms', title: 'Terms of Sale' },
+  { href: '/privacy/', label: 'Privacy', title: 'Privacy' },
+  {
+    href: '/third-party/',
+    label: 'Third-Party',
+    title: 'Third-Party Software',
+  },
+]
+
 export function LegalPage({
   children,
   eyebrow,
@@ -42,6 +54,24 @@ export function LegalPage({
           <div className="mt-10 border-t border-line pt-8 text-sm leading-7 text-foreground/80 sm:text-base">
             {children}
           </div>
+          <nav
+            aria-label="Legal documents"
+            className="mt-12 border-t border-line pt-6"
+          >
+            <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    aria-current={title === link.title ? 'page' : undefined}
+                    className="rounded-sm text-muted underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 aria-[current=page]:text-foreground"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </article>
       </main>
       <Footer copy={HOME_COPY.en} />

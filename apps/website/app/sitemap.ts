@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absolute(homePath(locale)),
       alternates: { languages: homeLanguages() },
     })),
-    { url: absolute('/lisense/') },
+    { url: absolute('/license/') },
+    { url: absolute('/policies/') },
   ]
 }

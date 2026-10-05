@@ -4,13 +4,8 @@
 import { motion, useReducedMotion } from 'motion/react'
 import type { HomeCopy } from './home-locale'
 
-const checkoutUrl = process.env.NEXT_PUBLIC_VIDRO_CHECKOUT_URL
-
 export function Pricing({ copy }: { copy: HomeCopy }) {
   const reduceMotion = useReducedMotion()
-  const purchaseUrl = checkoutUrl?.startsWith('https://')
-    ? checkoutUrl
-    : undefined
 
   return (
     <section
@@ -61,9 +56,9 @@ export function Pricing({ copy }: { copy: HomeCopy }) {
           </p>
           <a
             className="flex min-h-12 w-full items-center justify-center rounded-lg bg-foreground px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-foreground/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-            href={purchaseUrl ?? '#playground'}
+            href="#playground"
           >
-            {purchaseUrl ? copy.buy : copy.tryEditor}
+            {copy.tryEditor}
             <span aria-hidden="true" className="ml-3">
               ↗
             </span>

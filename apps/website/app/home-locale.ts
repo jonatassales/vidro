@@ -53,7 +53,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     ],
     product: 'Product',
     license: 'License',
-    policies: 'Policies',
+    policies: 'Legal & Policies',
     backedBy: 'Backed by:',
     socialLinks: 'Social networks',
     footerDescription:
@@ -86,7 +86,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     ],
     product: 'Produto',
     license: 'Licença',
-    policies: 'Políticas',
+    policies: 'Jurídico e políticas',
     backedBy: 'Apoiado por:',
     socialLinks: 'Redes sociais',
     footerDescription:
@@ -118,7 +118,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     ],
     product: '产品',
     license: '许可证',
-    policies: '政策',
+    policies: '法律与政策',
     backedBy: '支持方：',
     socialLinks: '社交平台',
     footerDescription: '一抹玻璃质感，更多代码清晰度。自然融入你的应用。',
@@ -151,7 +151,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     ],
     product: '製品',
     license: 'ライセンス',
-    policies: 'ポリシー',
+    policies: '法務・ポリシー',
     backedBy: '支える技術：',
     socialLinks: 'ソーシャルメディア',
     footerDescription:

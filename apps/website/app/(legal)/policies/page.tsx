@@ -1,26 +1,14 @@
 import { pageMetadata } from '../../metadata/page-metadata'
+import { LegalContent } from '../legal-content'
+import { policiesContent } from '../legal-documents'
 import { LegalPage } from '../legal-page'
 
 export const metadata = pageMetadata('policies')
 
-export default function PoliciesPage() {
+export default function Page() {
   return (
-    <LegalPage eyebrow="Draft" title="Policies">
-      <p className="mb-8 rounded-xl border border-line bg-ice/40 px-5 py-4 font-medium text-foreground">
-        Placeholder content. The Vidro website policies will be provided later;
-        the text below is not a published policy.
-      </p>
-      <p className="mb-5">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-        euismod, tellus a blandit tempor, velit turpis faucibus nibh, vitae
-        feugiat purus dui sed arcu.
-      </p>
-      <p>
-        Curabitur facilisis justo vitae arcu consectetur, sit amet posuere sem
-        ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et
-        ultrices posuere cubilia curae; sed convallis risus ac orci gravida, at
-        commodo neque dignissim.
-      </p>
+    <LegalPage eyebrow="Legal documents" title="Legal & Policies">
+      <LegalContent content={policiesContent} />
     </LegalPage>
   )
 }

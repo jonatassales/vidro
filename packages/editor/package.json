@@ -4,12 +4,14 @@
   "private": false,
   "type": "module",
   "description": "Vidro editor web component preview",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENCE.md",
   "engines": {
     "node": ">=24"
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENCE.md",
+    "third-party"
   ],
   "exports": {
     ".": {

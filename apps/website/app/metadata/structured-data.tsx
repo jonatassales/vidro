@@ -29,15 +29,9 @@ export function WebsiteStructuredData({ locale }: { locale: HomeLocale }) {
         operatingSystem: 'Web browser',
         inLanguage: locale,
         image: absolute('/opengraph-image'),
-        license: absolute('/lisense/'),
+        license: absolute('/license/'),
         sameAs: site.repository,
         publisher: { '@id': organization['@id'] },
-        offers: {
-          '@type': 'Offer',
-          price: '1',
-          priceCurrency: 'USD',
-          url: `${canonical}#pricing`,
-        },
       },
     ],
   }

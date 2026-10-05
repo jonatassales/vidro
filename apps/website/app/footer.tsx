@@ -66,7 +66,7 @@ export function Footer({ copy }: { copy: HomeCopy }) {
               <li>
                 <a
                   className="rounded-sm text-sm text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4"
-                  href="/lisense/"
+                  href="/license/"
                 >
                   {copy.license}
                 </a>

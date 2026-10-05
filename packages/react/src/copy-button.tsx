@@ -1,6 +1,5 @@
 'use client'
 
-import { useReducedMotion } from 'motion/react'
 import { useState } from 'react'
 
 export function CopyButton({
@@ -13,7 +12,6 @@ export function CopyButton({
   text?: string
 }) {
   const [copied, setCopied] = useState(false)
-  const reducedMotion = useReducedMotion()
 
   async function onCopy() {
     const value = getText ? getText() : (text ?? '')
@@ -33,7 +31,7 @@ export function CopyButton({
     <button
       aria-label={copied ? 'Copied' : label}
       aria-live="polite"
-      className={`grid size-8 shrink-0 place-items-center rounded-md text-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground ${reducedMotion ? '' : 'transition-colors duration-150'}`}
+      className="grid size-8 shrink-0 place-items-center rounded-md text-muted transition-colors duration-150 hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground motion-reduce:transition-none"
       onClick={() => {
         void onCopy()
       }}

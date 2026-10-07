@@ -1,0 +1,242 @@
+{
+  "zh": {
+    "322": {
+      "english": "Defines the regular expression used to find section headers in comments. The regex must contain a named match group `label` (written as `(?<label>.+)`) that encapsulates the section header, otherwise it will not work. Optionally you can include another match group named `separator`. Use \\n in the pattern to match multi-line headers.",
+      "upstream": "定义用于在注释中查找节标头的正则表达式。正则表达式必须包含命名匹配组“label”，(写为 “(？<label>.+)”) 封装节标头，否则它将不起作用。可以选择包括另一个名为“separator”的匹配组。使用模式中的 \\n 匹配多行标头。"
+    },
+    "422": {
+      "english": "When enabled IntelliSense shows `method`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“方法”建议。"
+    },
+    "423": {
+      "english": "When enabled IntelliSense shows `function`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“函数”建议。"
+    },
+    "424": {
+      "english": "When enabled IntelliSense shows `constructor`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“构造函数”建议。"
+    },
+    "425": {
+      "english": "When enabled IntelliSense shows `deprecated`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示`已弃用`建议。"
+    },
+    "427": {
+      "english": "When enabled IntelliSense shows `field`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“字段”建议。"
+    },
+    "428": {
+      "english": "When enabled IntelliSense shows `variable`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“变量”建议。"
+    },
+    "429": {
+      "english": "When enabled IntelliSense shows `class`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“类”建议。"
+    },
+    "430": {
+      "english": "When enabled IntelliSense shows `struct`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“结构”建议。"
+    },
+    "431": {
+      "english": "When enabled IntelliSense shows `interface`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“接口”建议。"
+    },
+    "432": {
+      "english": "When enabled IntelliSense shows `module`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“模块”建议。"
+    },
+    "433": {
+      "english": "When enabled IntelliSense shows `property`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“属性”建议。"
+    },
+    "434": {
+      "english": "When enabled IntelliSense shows `event`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“事件”建议。"
+    },
+    "435": {
+      "english": "When enabled IntelliSense shows `operator`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“操作符”建议。"
+    },
+    "436": {
+      "english": "When enabled IntelliSense shows `unit`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“单位”建议。"
+    },
+    "437": {
+      "english": "When enabled IntelliSense shows `value`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“值”建议。"
+    },
+    "438": {
+      "english": "When enabled IntelliSense shows `constant`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“常量”建议。"
+    },
+    "439": {
+      "english": "When enabled IntelliSense shows `enum`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“枚举”建议。"
+    },
+    "441": {
+      "english": "When enabled IntelliSense shows `keyword`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“关键字”建议。"
+    },
+    "442": {
+      "english": "When enabled IntelliSense shows `text`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“文本”建议。"
+    },
+    "443": {
+      "english": "When enabled IntelliSense shows `color`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“颜色”建议。"
+    },
+    "444": {
+      "english": "When enabled IntelliSense shows `file`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“文件”建议。"
+    },
+    "445": {
+      "english": "When enabled IntelliSense shows `reference`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“参考”建议。"
+    },
+    "446": {
+      "english": "When enabled IntelliSense shows `customcolor`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“自定义颜色”建议。"
+    },
+    "447": {
+      "english": "When enabled IntelliSense shows `folder`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“文件夹”建议。"
+    },
+    "449": {
+      "english": "When enabled IntelliSense shows `snippet`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示“片段”建议。"
+    },
+    "450": {
+      "english": "When enabled IntelliSense shows `user`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示\"用户\"建议。"
+    },
+    "451": {
+      "english": "When enabled IntelliSense shows `issues`-suggestions.",
+      "upstream": "启用后，IntelliSense 将显示\"问题\"建议。"
+    },
+    "522": {
+      "english": "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API.",
+      "upstream": "仅当通过键盘或 API 触发时，才会强制执行\"光标环绕行\"。"
+    },
+    "564": {
+      "english": "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+      "upstream": "映射为 `Ctrl` (Windows 和 Linux) 或 `Command` (macOS)。"
+    },
+    "621": {
+      "english": "Select recent suggestions unless further typing selects one, e.g. `console.| -> console.log` because `log` has been completed recently.",
+      "upstream": "选择最近的建议，除非进一步键入选择其他项。例如 `console. -> console.log`，因为最近补全过 `log`。"
+    },
+    "1802": {
+      "english": "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+      "upstream": "映射为 `Ctrl` (Windows 和 Linux) 或 `Command` (macOS)。"
+    }
+  },
+  "ja": {
+    "415": {
+      "english": "Controls whether a suggestion is selected when the widget shows. Note that this only applies to automatically triggered suggestions ({0} and {1}) and that a suggestion is always selected when explicitly invoked, e.g via `Ctrl+Space`.",
+      "upstream": "ウィジェットを表示する際に候補を選択するかどうかを制御します。これは、自動的にトリガーされる提案 ({0} および {1}) にのみ適用され、明示的に呼び出された場合 (例: `Ctrl + Space`) で提案が常に選択されることに注意してください。"
+    },
+    "422": {
+      "english": "When enabled IntelliSense shows `method`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `メソッド` 候補が表示されます。"
+    },
+    "423": {
+      "english": "When enabled IntelliSense shows `function`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `関数` 候補が表示されます。"
+    },
+    "424": {
+      "english": "When enabled IntelliSense shows `constructor`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `コンストラクター` 候補が表示されます。"
+    },
+    "425": {
+      "english": "When enabled IntelliSense shows `deprecated`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `非推奨` 候補が表示されます。"
+    },
+    "427": {
+      "english": "When enabled IntelliSense shows `field`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `フィールド` 候補が表示されます。"
+    },
+    "428": {
+      "english": "When enabled IntelliSense shows `variable`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `変数` 候補が表示されます。"
+    },
+    "429": {
+      "english": "When enabled IntelliSense shows `class`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に 'クラス' 候補が表示されます。"
+    },
+    "430": {
+      "english": "When enabled IntelliSense shows `struct`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `構造体` 候補が表示されます。"
+    },
+    "431": {
+      "english": "When enabled IntelliSense shows `interface`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `インターフェイス` 候補が表示されます。"
+    },
+    "432": {
+      "english": "When enabled IntelliSense shows `module`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `モジュール` 候補が表示されます。"
+    },
+    "433": {
+      "english": "When enabled IntelliSense shows `property`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `プロパティ` 候補が表示されます。"
+    },
+    "434": {
+      "english": "When enabled IntelliSense shows `event`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `イベント` 候補が表示されます。"
+    },
+    "435": {
+      "english": "When enabled IntelliSense shows `operator`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `演算子` 候補が表示されます。"
+    },
+    "436": {
+      "english": "When enabled IntelliSense shows `unit`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `ユニット` 候補が表示されます。"
+    },
+    "437": {
+      "english": "When enabled IntelliSense shows `value`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `値` 候補が表示されます。"
+    },
+    "438": {
+      "english": "When enabled IntelliSense shows `constant`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `定数` 候補が表示されます。"
+    },
+    "439": {
+      "english": "When enabled IntelliSense shows `enum`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `列挙型` 候補が表示されます。"
+    },
+    "441": {
+      "english": "When enabled IntelliSense shows `keyword`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `キーワード` 候補が表示されます。"
+    },
+    "442": {
+      "english": "When enabled IntelliSense shows `text`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に 'テキスト' -候補が表示されます。"
+    },
+    "443": {
+      "english": "When enabled IntelliSense shows `color`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `色` 候補が表示されます。"
+    },
+    "444": {
+      "english": "When enabled IntelliSense shows `file`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に 'ファイル' 候補が表示されます。"
+    },
+    "445": {
+      "english": "When enabled IntelliSense shows `reference`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `参照` 候補が表示されます。"
+    },
+    "447": {
+      "english": "When enabled IntelliSense shows `folder`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `フォルダー` 候補が表示されます。"
+    },
+    "449": {
+      "english": "When enabled IntelliSense shows `snippet`-suggestions.",
+      "upstream": "有効にすると、IntelliSense に `スニペット` 候補が表示されます。"
+    },
+    "450": {
+      "english": "When enabled IntelliSense shows `user`-suggestions.",
+      "upstream": "有効な場合、IntelliSense によって 'ユーザー' 候補が示されます。"
+    },
+    "451": {
+      "english": "When enabled IntelliSense shows `issues`-suggestions.",
+      "upstream": "有効にすると、IntelliSense によって '問題' 候補が示されます。"
+    }
+  }
+}

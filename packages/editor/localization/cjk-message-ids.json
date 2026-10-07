@@ -1,0 +1,81 @@
+{
+  "Collapse unchanged lines": [
+    144,
+    148
+  ],
+  "Show {0} hidden lines": [
+    145
+  ],
+  "Go to {0}": [
+    149
+  ],
+  "Binary file changed": [
+    164
+  ],
+  "Open Diff": [
+    165
+  ],
+  "Controls whether original line numbers are hidden in inline diffs. When set to null, uses the editor's default: hidden in compact multi diff editors and visible in other diff editors.": [
+    206
+  ],
+  "Render full-width characters using the width defined by the font.": [
+    550
+  ],
+  "Render full-width characters centered in exactly two character cells. Only applies to monospace fonts. Does not apply to multi codepoint full-width characters or to GPU rendering. This has a performance impact on line rendering.": [
+    551
+  ],
+  "Controls the width used to render full-width characters.": [
+    552
+  ],
+  "Controls whether an indicator is rendered at the wrapping column of lines that wrap. Only has an effect when `#editor.wordWrap#` is enabled.": [
+    643
+  ],
+  "Color of the indicator shown at the end of a soft wrapped line in the editor.": [
+    665
+  ],
+  "Whether inline mode is temporarily active after manually resizing the diff editor": [
+    740
+  ],
+  "Whether automatic diff editor layout would render side by side": [
+    741
+  ],
+  "Whether the operating system is ChromeOS": [
+    1781
+  ],
+  "Controls how many characters can be in the selection before similar matches are not highlighted. Set to zero for unlimited.": [
+    602
+  ],
+  "Next edit suggestion available on line {0}, press {1} to accept": [
+    1262
+  ],
+  "Next edit suggestion available on line {0}, accept it to apply": [
+    1263
+  ],
+  "Next edit suggestion available on line {0}, press {1} to jump": [
+    1264
+  ],
+  "Next edit suggestion available on line {0}": [
+    1265,
+    1266
+  ],
+  "Outline color of the focused (keyboard-navigated) entry in the suggest widget.": [
+    1551
+  ],
+  "Voice Mode Started": [
+    1707,
+    1708
+  ],
+  "Voice Mode Stopped": [
+    1710,
+    1711
+  ],
+  "{0}, on": [
+    1734
+  ],
+  "{0}, off": [
+    1735
+  ],
+  "Cannot register '{0}'. The agent host configuration key '{1}' is already mirrored from '{2}'.": [
+    1767
+  ]
+}

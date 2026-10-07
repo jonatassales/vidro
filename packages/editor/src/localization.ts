@@ -3,7 +3,7 @@ export type VidroUiLocale = 'en' | 'pt-BR' | 'zh' | 'ja' | 'vi'
 
 export interface VidroLocalizationStatus {
   readonly uiLocale: VidroUiLocale
-  readonly monacoLocale: Exclude<VidroUiLocale, 'vi' | 'pt-BR'>
+  readonly monacoLocale: VidroUiLocale
   readonly complete: boolean
 }
 
@@ -12,8 +12,8 @@ export function localizationStatus(
 ): VidroLocalizationStatus {
   return Object.freeze({
     uiLocale,
-    monacoLocale: uiLocale === 'vi' || uiLocale === 'pt-BR' ? 'en' : uiLocale,
-    complete: uiLocale !== 'vi' && uiLocale !== 'pt-BR',
+    monacoLocale: uiLocale,
+    complete: true,
   })
 }
 

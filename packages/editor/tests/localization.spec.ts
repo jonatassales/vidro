@@ -35,8 +35,8 @@ const cases = [
     added: '2 linhas adicionadas, 1 linha excluída',
     total: 'Total: 2 linhas adicionadas, 1 linha excluída',
     split: 'Diff lado a lado',
-    monaco: 'en',
-    complete: false,
+    monaco: 'pt-BR',
+    complete: true,
   },
   {
     locale: 'zh',
@@ -83,8 +83,8 @@ const cases = [
     added: 'thêm 2 dòng, xóa 1 dòng',
     total: 'Tổng cộng: thêm 2 dòng, xóa 1 dòng',
     split: 'So sánh cạnh nhau',
-    monaco: 'en',
-    complete: false,
+    monaco: 'vi',
+    complete: true,
   },
 ] as const
 
@@ -180,20 +180,6 @@ for (const item of cases) {
   })
 }
 
-test('Monaco find interface uses the official Chinese catalog', async ({
-  page,
-}) => {
-  await page.goto('/localization.html?locale=zh')
-  await expect(page.locator('body')).toHaveAttribute('data-ready', 'true')
-  await page.getByRole('textbox', { name: '编辑器文本', exact: true }).focus()
-  await page.keyboard.press(
-    process.platform === 'darwin' ? 'Meta+f' : 'Control+f',
-  )
-  await expect(
-    page.getByRole('textbox', { name: '查找', exact: true }),
-  ).toBeVisible()
-})
-
 test('invalid and connected locale mutations fail without changing the programming language', async ({
   page,
 }) => {
@@ -220,22 +206,6 @@ test('invalid and connected locale mutations fail without changing the programmi
     locale: 'en',
     language: 'typescript',
   })
-})
-
-test('Monaco find interface uses the official Japanese catalog', async ({
-  page,
-}) => {
-  await page.goto('/localization.html?locale=ja')
-  await expect(page.locator('body')).toHaveAttribute('data-ready', 'true')
-  await page
-    .getByRole('textbox', { name: 'エディターのテキスト', exact: true })
-    .focus()
-  await page.keyboard.press(
-    process.platform === 'darwin' ? 'Meta+f' : 'Control+f',
-  )
-  await expect(
-    page.getByRole('textbox', { name: '検索', exact: true }),
-  ).toBeVisible()
 })
 
 test('a conflicting document locale rejects readiness without disturbing the first editor', async ({
@@ -265,3 +235,45 @@ test('a conflicting document locale rejects readiness without disturbing the fir
     locale: 'zh',
   })
 })
+
+const monacoLabels = {
+  en: { find: 'Find', copy: 'Copy' },
+  'pt-BR': { find: 'Localizar', copy: 'Copiar' },
+  zh: { find: '查找', copy: '复制' },
+  ja: { find: '検索', copy: 'コピー' },
+  vi: { find: 'Tìm', copy: 'Sao chép' },
+} as const
+for (const item of cases) {
+  test(`${item.locale}: Monaco Find, command palette and context menu are localized`, async ({
+    page,
+  }) => {
+    await page.goto(`/localization.html?locale=${item.locale}`)
+    await expect(page.locator('body')).toHaveAttribute('data-ready', 'true')
+    const labels = monacoLabels[item.locale]
+    const textbox = page.getByRole('textbox', { name: item.text, exact: true })
+    await textbox.focus()
+    await page.keyboard.press(
+      process.platform === 'darwin' ? 'Meta+f' : 'Control+f',
+    )
+    await expect(
+      page.getByRole('textbox', { name: labels.find, exact: true }),
+    ).toBeVisible()
+    await page.keyboard.press('Escape')
+    await textbox.focus()
+    await page.keyboard.press('F1')
+    const command = page.locator('.quick-input-widget input')
+    await expect(command).toBeVisible()
+    await command.fill(`>${labels.copy}`)
+    await expect(
+      page.getByRole('option').filter({ hasText: labels.copy }).first(),
+    ).toBeVisible()
+    await page.keyboard.press('Escape')
+    await page.locator('.view-line').first().click({ button: 'right' })
+    await expect(
+      page
+        .locator('.context-view .action-label')
+        .getByText(labels.copy, { exact: true })
+        .first(),
+    ).toBeVisible()
+  })
+}

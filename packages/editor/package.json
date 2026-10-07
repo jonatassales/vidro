@@ -1,6 +1,6 @@
 {
   "name": "vidro",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0-preview.2",
   "private": false,
   "type": "module",
   "description": "Vidro editor web component preview",
@@ -24,11 +24,12 @@
     "./dist/index.js"
   ],
   "scripts": {
-    "build": "vite build && tsc --project tsconfig.build.json",
+    "build": "node scripts/check-monaco-catalogs.mjs && vite build && tsc --project tsconfig.build.json",
     "typecheck": "tsc --noEmit && tsc --noEmit --project sandbox/tsconfig.json && tsc --noEmit --project tests/tsconfig.json",
     "lint": "biome check src sandbox scripts tests vite.config.ts playwright.config.ts",
     "test": "playwright test",
-    "sandbox": "node scripts/sandbox.mjs"
+    "sandbox": "node scripts/sandbox.mjs",
+    "check:localization": "node scripts/check-monaco-catalogs.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",

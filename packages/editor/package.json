@@ -1,6 +1,6 @@
 {
   "name": "vidro",
-  "version": "0.1.0-preview.0",
+  "version": "0.1.0-preview.1",
   "private": false,
   "type": "module",
   "description": "Vidro editor web component preview",

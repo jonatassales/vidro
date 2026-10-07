@@ -343,13 +343,15 @@ test('diff list supports multiple expansions, local language, counts, and per-fi
     editor.getByRole('button', { name: 'Collapse first.ts' }),
   ).toBeVisible()
   await expect(
-    editor.getByLabel('2 added lines, 1 deleted lines', { exact: true }),
+    editor.getByLabel('2 added lines, 1 deleted line', { exact: true }),
   ).toBeVisible()
   await expect(
-    editor.getByLabel('1 added lines, 0 deleted lines', { exact: true }),
+    editor.getByLabel('1 added line, 0 deleted lines', { exact: true }),
   ).toBeVisible()
   await expect(
-    editor.getByLabel('1500 added lines, 1500 deleted lines', { exact: true }),
+    editor.getByLabel('1,500 added lines, 1,500 deleted lines', {
+      exact: true,
+    }),
   ).toBeVisible()
   await expect(
     editor.getByRole('button', { name: 'Expand large.txt' }),

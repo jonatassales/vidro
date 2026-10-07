@@ -1,4 +1,5 @@
 import * as monaco from 'monaco-editor/editor/editor.api.js'
+import { formatUiNumber, UI_COPY, type VidroUiLocale } from './localization.js'
 import 'monaco-editor/languages/definitions/javascript/register.js'
 import 'monaco-editor/languages/definitions/typescript/register.js'
 import 'monaco-editor/languages/definitions/html/register.js'
@@ -211,6 +212,7 @@ function configureWorker(): void {
 }
 
 type MountOptions = Readonly<{
+  uiLocale: VidroUiLocale
   value: string
   language: VidroLanguage
   typography: Typography
@@ -261,8 +263,10 @@ function editorSurface(): HTMLDivElement {
   return surface
 }
 
-function editorOptions(typography: Typography) {
+function editorOptions(typography: Typography, locale: VidroUiLocale) {
+  const messages = UI_COPY[locale]
   return {
+    ariaLabel: messages.editorText,
     automaticLayout: true,
     fontFamily: typography.fontFamily,
     fontSize: typography.fontSize,
@@ -326,6 +330,7 @@ function createListView(
   language: VidroLanguage,
   typography: Typography,
   split: boolean,
+  locale: VidroUiLocale,
 ): ListView {
   const originalModel = monaco.editor.createModel(file.originalValue, language)
   let modifiedModel: monaco.editor.ITextModel | undefined
@@ -335,7 +340,9 @@ function createListView(
     modifiedModel = monaco.editor.createModel(file.value, language)
     prepareOriginalTokens(originalModel)
     editor = monaco.editor.createDiffEditor(surface, {
-      ...editorOptions(typography),
+      ...editorOptions(typography, locale),
+      originalAriaLabel: UI_COPY[locale].originalText,
+      modifiedAriaLabel: UI_COPY[locale].modifiedText,
       lineNumbers: 'on',
       readOnly: true,
       originalEditable: false,
@@ -381,6 +388,8 @@ export function mountEditor(
   options: MountOptions,
 ): MountedEditor {
   configureWorker()
+  const locale = options.uiLocale
+  const messages = UI_COPY[locale]
   const model = monaco.editor.createModel(options.value, options.language)
   let presentation = options.presentation
   let language = options.language
@@ -402,6 +411,7 @@ export function mountEditor(
   const chrome = createSummaryChrome(
     (next) => options.onLanguage(next),
     () => model.getValue(monaco.editor.EndOfLinePreference.LF, true),
+    locale,
   )
   const body = document.createElement('div')
   body.className = 'vidro-editor__body'
@@ -447,7 +457,7 @@ export function mountEditor(
     let composing = false
     try {
       editor = monaco.editor.create(surface, {
-        ...editorOptions(typography),
+        ...editorOptions(typography, locale),
         model,
         readOnly: !presentation.editable,
       })
@@ -506,7 +516,9 @@ export function mountEditor(
     try {
       prepareOriginalTokens(originalModel)
       editor = monaco.editor.createDiffEditor(surface, {
-        ...editorOptions(typography),
+        ...editorOptions(typography, locale),
+        originalAriaLabel: UI_COPY[locale].originalText,
+        modifiedAriaLabel: UI_COPY[locale].modifiedText,
         lineNumbers: 'on',
         readOnly: true,
         originalEditable: false,
@@ -560,7 +572,7 @@ export function mountEditor(
     const disclosure = document.createElement('button')
     disclosure.type = 'button'
     disclosure.className = 'vidro-editor__disclosure'
-    const icon = chromeIcon()
+    const icon = chromeIcon(locale)
     const fileName = document.createElement('span')
     fileName.className = 'vidro-editor__file-name'
     const count = document.createElement('span')
@@ -575,10 +587,14 @@ export function mountEditor(
     const layout = document.createElement('button')
     layout.type = 'button'
     layout.className = 'vidro-editor__layout-button'
-    const selector = languageSelect(`Language for ${file.id}`, (next) => {
-      options.onFileLanguage(current.id, next)
-    })
-    const copy = copyButton(`Copy ${file.id} modified text`)
+    const selector = languageSelect(
+      messages.fileLanguage(file.id),
+      (next) => {
+        options.onFileLanguage(current.id, next)
+      },
+      locale,
+    )
+    const copy = copyButton(messages.copyFile(file.id))
     const status = copyStatus()
     const content = document.createElement('div')
     content.className = 'vidro-editor__file-content'
@@ -597,7 +613,7 @@ export function mountEditor(
       syncLayout()
     })
     copy.addEventListener('click', () => {
-      void copyText(current.value, status)
+      void copyText(current.value, status, locale)
     })
     actions.append(layout, selector, copy, status)
     heading.append(disclosure, icon.element, fileName, count, actions)
@@ -608,16 +624,16 @@ export function mountEditor(
       disclosure.setAttribute('aria-expanded', String(expanded))
       disclosure.setAttribute(
         'aria-label',
-        `${expanded ? 'Collapse' : 'Expand'} ${fileLabel(current)}`,
+        (expanded ? messages.collapse : messages.expand)(fileLabel(current)),
       )
       content.hidden = !expanded
     }
 
     function syncLayout(): void {
-      layout.textContent = split ? 'Split' : 'Inline'
+      layout.textContent = split ? messages.split : messages.inline
       layout.setAttribute(
         'aria-label',
-        `Show ${split ? 'inline' : 'split'} comparison for ${fileLabel(current)}`,
+        (split ? messages.showInline : messages.showSplit)(fileLabel(current)),
       )
     }
 
@@ -638,6 +654,7 @@ export function mountEditor(
           current.language ?? language,
           typography,
           split,
+          locale,
         )
       } catch (error) {
         surface.remove()
@@ -652,11 +669,11 @@ export function mountEditor(
       icon.update(file.icon, label)
       icon.element.hidden = !presentation.header || file.icon === undefined
       const stats = fileStats(file)
-      addedCount.textContent = `+${stats.added}`
-      deletedCount.textContent = `−${stats.deleted}`
+      addedCount.textContent = `+${formatUiNumber(locale, stats.added)}`
+      deletedCount.textContent = `−${formatUiNumber(locale, stats.deleted)}`
       count.setAttribute(
         'aria-label',
-        `${stats.added} added lines, ${stats.deleted} deleted lines`,
+        messages.lines(stats.added, stats.deleted),
       )
       selector.hidden = !presentation.header || !presentation.languageSelector
       selector.value = file.language ?? language

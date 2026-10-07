@@ -4,10 +4,12 @@ import {
   type VidroLanguage,
 } from './configuration.js'
 import type { DiffStats } from './diff-stats.js'
+import { formatUiNumber, UI_COPY, type VidroUiLocale } from './localization.js'
 
 export function languageSelect(
   label: string,
   onChange: (language: VidroLanguage) => void,
+  locale: VidroUiLocale = 'en',
 ): HTMLSelectElement {
   const select = document.createElement('select')
   select.className = 'vidro-editor__language-select'
@@ -15,7 +17,7 @@ export function languageSelect(
   for (const [id, name] of Object.entries(LANGUAGE_LABELS)) {
     const option = document.createElement('option')
     option.value = id
-    option.textContent = name
+    option.textContent = id === 'plaintext' ? UI_COPY[locale].plainText : name
     select.append(option)
   }
   select.addEventListener('change', () => {
@@ -29,7 +31,7 @@ export interface ChromeIcon {
   update(url: string | undefined, title: string | undefined): void
 }
 
-export function chromeIcon(): ChromeIcon {
+export function chromeIcon(locale: VidroUiLocale = 'en'): ChromeIcon {
   const element = document.createElement('span')
   element.className = 'vidro-editor__icon'
   const image = document.createElement('img')
@@ -53,8 +55,11 @@ export function chromeIcon(): ChromeIcon {
         image.removeAttribute('src')
         return
       }
-      image.alt = title ? '' : 'Document icon'
-      fallback.setAttribute('aria-label', title ? '' : 'Document icon')
+      image.alt = title ? '' : UI_COPY[locale].documentIcon
+      fallback.setAttribute(
+        'aria-label',
+        title ? '' : UI_COPY[locale].documentIcon,
+      )
       fallback.setAttribute('aria-hidden', title ? 'true' : 'false')
       if (image.getAttribute('src') !== url) {
         image.hidden = false
@@ -102,12 +107,13 @@ export function copyStatus(): HTMLSpanElement {
 export async function copyText(
   value: string,
   status: HTMLElement,
+  locale: VidroUiLocale = 'en',
 ): Promise<void> {
   try {
     await navigator.clipboard.writeText(value)
-    status.textContent = 'Copied to clipboard'
+    status.textContent = UI_COPY[locale].copied
   } catch {
-    status.textContent = 'Could not copy to clipboard'
+    status.textContent = UI_COPY[locale].copyFailed
   }
 }
 
@@ -124,12 +130,14 @@ export interface SummaryChrome {
 export function createSummaryChrome(
   onLanguage: (language: VidroLanguage) => void,
   getValue: () => string,
+  locale: VidroUiLocale = 'en',
 ): SummaryChrome {
   const element = document.createElement('div')
   element.className = 'vidro-editor__header'
   const identity = document.createElement('div')
   identity.className = 'vidro-editor__header-identity'
-  const icon = chromeIcon()
+  const messages = UI_COPY[locale]
+  const icon = chromeIcon(locale)
   const title = document.createElement('span')
   title.className = 'vidro-editor__header-title'
   const totalCount = document.createElement('span')
@@ -142,11 +150,11 @@ export function createSummaryChrome(
   identity.append(icon.element, title, totalCount)
   const actions = document.createElement('div')
   actions.className = 'vidro-editor__header-actions'
-  const selector = languageSelect('Editor language', onLanguage)
-  const copy = copyButton('Copy editor text')
+  const selector = languageSelect(messages.editorLanguage, onLanguage, locale)
+  const copy = copyButton(messages.copyEditor)
   const status = copyStatus()
   copy.addEventListener('click', () => {
-    void copyText(getValue(), status)
+    void copyText(getValue(), status, locale)
   })
   actions.append(selector, copy)
   element.append(identity, actions, status)
@@ -159,17 +167,17 @@ export function createSummaryChrome(
       title.textContent =
         presentation.headerTitle ??
         (presentation.preset === 'diff-list'
-          ? `${presentation.files.length} changed ${presentation.files.length === 1 ? 'file' : 'files'}`
+          ? messages.changedFiles(presentation.files.length)
           : '')
       title.hidden =
         presentation.headerTitle === undefined &&
         presentation.preset !== 'diff-list'
       totalCount.hidden = presentation.preset !== 'diff-list'
-      addedCount.textContent = `+${totals?.added ?? 0}`
-      deletedCount.textContent = `−${totals?.deleted ?? 0}`
+      addedCount.textContent = `+${formatUiNumber(locale, totals?.added ?? 0)}`
+      deletedCount.textContent = `−${formatUiNumber(locale, totals?.deleted ?? 0)}`
       totalCount.setAttribute(
         'aria-label',
-        `${totals?.added ?? 0} added lines, ${totals?.deleted ?? 0} deleted lines total`,
+        messages.lines(totals?.added ?? 0, totals?.deleted ?? 0, true),
       )
       selector.hidden =
         !presentation.languageSelector || presentation.preset === 'diff-list'

@@ -49,6 +49,24 @@ The header defaults to visible (`header = true`), with optional `headerTitle` an
 
 Presentation, comparison inputs, and copy actions emit no editing events. Actual external `value` changes retain their external change notification. The default editable preset retains immediate changes, debounced editing sessions, composition handling, and lifecycle recovery. Sinapsi/Jotai graph integration is deferred to a later cycle.
 
+## Interface localization
+
+Set `editor.uiLocale` before appending the element. Supported aliases are `en` (default), `pt-BR`, `zh` (Simplified Chinese), `ja`, and `vi`. This property localizes Vidro's own controls, clipboard feedback, file/line announcements, and editor accessible names. `editor.language` continues to select syntax highlighting.
+
+```ts
+const editor = document.createElement('vidro-editor')
+editor.uiLocale = 'ja'
+editor.language = 'typescript'
+document.body.append(editor)
+await editor.whenReady()
+console.log(editor.localizationStatus)
+// { uiLocale: 'ja', monacoLocale: 'ja', complete: true }
+```
+
+Monaco 0.57.0's supported NLS mechanism loads its catalog before evaluating the editor runtime. Its locale is shared by a document and some messages are fixed during module evaluation. All connected editors must use the same Monaco locale. Use a full document navigation to change between Monaco locales; a conflicting editor rejects `whenReady()`. Changing `uiLocale` while connected throws `InvalidStateError`. Property upgrades and disconnected configuration remain supported.
+
+**Known dependency gaps:** Monaco 0.57.0 contains no Vietnamese catalog, and its bundled `pt-br` catalog contains 2,153 null entries and no translated messages. For these two locales, Vidro's controls are localized but Monaco's internal interface remains English. `editor.localizationStatus` honestly returns `{ uiLocale, monacoLocale: 'en', complete: false }`. Consumers should explain this limitation. Completing those surfaces requires reviewed Monaco 0.57.0-compatible message catalogs; changing the wrapper accessible name does not resolve the gap. Chinese and Japanese use the official bundled catalogs without rewriting generated source or internal DOM.
+
 ## Sandbox
 
 ```sh

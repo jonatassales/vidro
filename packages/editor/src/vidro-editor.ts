@@ -11,6 +11,13 @@ import {
   type VidroPreset,
 } from './configuration.js'
 import type { VidroChangeDetail, VidroTypingDetail } from './events.js'
+import {
+  localizationStatus,
+  requiredUiLocale,
+  type VidroLocalizationStatus,
+  type VidroUiLocale,
+} from './localization.js'
+import { prepareMonacoLocale } from './monaco-localization.js'
 import type { MountedEditor } from './runtime.js'
 import { subscribeTheme } from './theme.js'
 
@@ -20,6 +27,7 @@ const CODE_FONT = 'Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace'
 const UPGRADE_PROPERTIES = [
   'value',
   'language',
+  'uiLocale',
   'debounceMs',
   'fontFamily',
   'fontSize',
@@ -57,6 +65,7 @@ function boundedNumber(
 export class VidroEditor extends HTMLElement {
   #value = ''
   #language: VidroLanguage = 'plaintext'
+  #uiLocale: VidroUiLocale = 'en'
   #debounceMs = 500
   #fontFamily = CODE_FONT
   #fontSize = 14
@@ -118,6 +127,24 @@ export class VidroEditor extends HTMLElement {
     if (next === this.#language) return
     this.#language = next
     this.#mounted?.setLanguage(next)
+  }
+
+  /** Set before connecting. Monaco's locale is shared by all editors in a document. */
+  get uiLocale(): VidroUiLocale {
+    return this.#uiLocale
+  }
+  set uiLocale(next: VidroUiLocale) {
+    requiredUiLocale(next)
+    if (next === this.#uiLocale) return
+    if (this.isConnected && this.#attempt !== undefined)
+      throw new DOMException(
+        'Set uiLocale before connecting the editor',
+        'InvalidStateError',
+      )
+    this.#uiLocale = next
+  }
+  get localizationStatus(): VidroLocalizationStatus {
+    return localizationStatus(this.#uiLocale)
   }
 
   get preset(): VidroPreset {
@@ -381,6 +408,8 @@ export class VidroEditor extends HTMLElement {
     rejectAttempt: (reason: unknown) => void,
   ): Promise<void> {
     try {
+      await prepareMonacoLocale(this.#uiLocale)
+      if (generation !== this.#generation || !this.isConnected) return
       const { mountEditor, prepareRuntime } = await import('./runtime.js')
       if (generation !== this.#generation || !this.isConnected) return
       await prepareRuntime()
@@ -396,6 +425,7 @@ export class VidroEditor extends HTMLElement {
       }
       if (generation !== this.#generation || !this.isConnected) return
       const mounted = mountEditor(container, {
+        uiLocale: this.#uiLocale,
         value: this.#value,
         language: this.#language,
         typography: this.#typography,

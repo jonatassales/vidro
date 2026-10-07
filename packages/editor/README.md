@@ -49,6 +49,24 @@ The header defaults to visible (`header = true`), with optional `headerTitle` an
 
 Presentation, comparison inputs, and copy actions emit no editing events. Actual external `value` changes retain their external change notification. The default editable preset retains immediate changes, debounced editing sessions, composition handling, and lifecycle recovery. Sinapsi/Jotai graph integration is deferred to a later cycle.
 
+## Interface localization
+
+Set `editor.uiLocale` before appending the element. Supported aliases are `en` (default), `pt-BR`, `zh` (Simplified Chinese), `ja`, and `vi`. This property localizes Vidro's own controls, clipboard feedback, file/line announcements, and editor accessible names. `editor.language` continues to select syntax highlighting.
+
+```ts
+const editor = document.createElement('vidro-editor')
+editor.uiLocale = 'ja'
+editor.language = 'typescript'
+document.body.append(editor)
+await editor.whenReady()
+console.log(editor.localizationStatus)
+// { uiLocale: 'ja', monacoLocale: 'ja', complete: true }
+```
+
+Monaco 0.57.0's supported NLS mechanism loads its catalog before evaluating the editor runtime. Its locale is shared by a document and some messages are fixed during module evaluation. All connected editors must use the same Monaco locale. Use a full document navigation to change between Monaco locales; a conflicting editor rejects `whenReady()`. Changing `uiLocale` while connected throws `InvalidStateError`. Property upgrades and disconnected configuration remain supported.
+
+Monaco's internal interface is localized for all five supported aliases. Chinese and Japanese use the official bundled catalogs with reviewed supplements and corrections for missing messages and literal code identifiers. Portuguese uses Microsoft's pinned VS Code localization catalog plus a reviewed supplement; Vietnamese uses a Vidro-authored catalog. The production build verifies every referenced Monaco NLS ID and all placeholders against the exact 0.57.0 source mapping. `editor.localizationStatus` returns `{ uiLocale, monacoLocale: uiLocale, complete: true }` for these catalogs. See [catalog provenance and reproduction](localization/README.md).
+
 ## Sandbox
 
 ```sh

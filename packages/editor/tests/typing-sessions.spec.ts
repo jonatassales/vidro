@@ -235,6 +235,21 @@ test('a delay change uses the last edit deadline while non-editing interaction l
   page,
 }) => {
   await page.goto('/import-only.html')
+  // Playwright's clock omits performance entries used by Monaco input telemetry.
+  // Preserve that native API while controlling performance.now and all timers.
+  const measurements = await page.evaluateHandle(() => ({
+    mark: performance.mark.bind(performance),
+    measure: performance.measure.bind(performance),
+    getEntriesByName: performance.getEntriesByName.bind(performance),
+    clearMarks: performance.clearMarks.bind(performance),
+    clearMeasures: performance.clearMeasures.bind(performance),
+  }))
+  await page.clock.install({ time: new Date('2026-01-01T08:00:00Z') })
+  await page.evaluate(
+    (native) => Object.assign(performance, native),
+    measurements,
+  )
+  await measurements.dispose()
   await page.evaluate(async () => {
     const editor = document.createElement('vidro-editor')
     editor.editable = true
@@ -253,22 +268,25 @@ test('a delay change uses the last edit deadline while non-editing interaction l
   })
   const editor = page.locator('vidro-editor')
   await editor.click()
+  // Let Monaco initialize normally, then hold performance.now and timers still.
+  await page.clock.pauseAt(new Date('2026-01-01T10:00:00Z'))
   await page.keyboard.type('A')
   expect(await editor.getAttribute('data-events')).toBe('["vidro-type-start"]')
-  await page.waitForTimeout(260)
+  await page.clock.runFor(260)
   await page.keyboard.press('ArrowLeft')
   await editor.hover()
   await editor.evaluate((element) => {
     element.value = 'A'
     element.debounceMs = 600
   })
-  await page.waitForTimeout(200)
+  // The rescheduled deadline is 600 ms after the edit, not after the update.
+  await page.clock.runFor(339)
   expect(await editor.getAttribute('data-events')).toBe('["vidro-type-start"]')
-  await page.waitForTimeout(220)
+  await page.clock.runFor(1)
   expect(await editor.getAttribute('data-events')).toBe(
     '["vidro-type-start","vidro-type-leave"]',
   )
-  await page.waitForTimeout(120)
+  await page.clock.runFor(260)
   expect(await editor.getAttribute('data-events')).toBe(
     '["vidro-type-start","vidro-type-leave"]',
   )

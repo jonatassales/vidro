@@ -8,6 +8,7 @@ export type {
   VidroEventMap,
   VidroTypingDetail,
 } from './events.js'
+export type { VidroLocalizationStatus, VidroUiLocale } from './localization.js'
 export type { VidroTheme } from './theme.js'
 export { setTheme } from './theme.js'
 export { VidroEditor } from './vidro-editor.js'

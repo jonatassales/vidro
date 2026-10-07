@@ -8,6 +8,9 @@ export default defineConfig({
         ? 'http://127.0.0.1:4184'
         : 'http://127.0.0.1:4183',
     browserName: 'chromium',
+    launchOptions: process.env.CHROME_PATH
+      ? { executablePath: process.env.CHROME_PATH }
+      : undefined,
   },
   webServer: {
     command:

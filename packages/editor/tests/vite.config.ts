@@ -7,6 +7,7 @@ const fixtureNames = [
   'upgrade',
   'invalid-upgrade',
   'theme',
+  'localization',
 ]
 const fixturePaths = new Set(
   fixtureNames.flatMap((name) => [`/${name}.html`, `/${name}.ts`]),

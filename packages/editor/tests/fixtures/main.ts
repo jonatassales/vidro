@@ -1,4 +1,4 @@
-import 'vidro'
+import 'vidropro'
 import { atom, createStore } from 'jotai/vanilla'
 
 const editor = document.createElement('vidro-editor')

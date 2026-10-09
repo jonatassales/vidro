@@ -86,7 +86,7 @@ try {
       run(
         [
           '--filter',
-          'vidro',
+          'vidropro',
           'exec',
           'tsc',
           '--project',

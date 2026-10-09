@@ -1,4 +1,4 @@
-import { setTheme, type VidroDiffFile, type VidroPreset } from 'vidro'
+import { setTheme, type VidroDiffFile, type VidroPreset } from 'vidropro'
 import { createWipeTransition } from './wipe'
 import './style.css'
 
@@ -7,7 +7,7 @@ const canvas = document.querySelector<HTMLCanvasElement>('#wipe')
 if (!host || !canvas) throw new Error('Missing hero editor host')
 
 const CODE = [
-  'import "vidro"',
+  'import "vidropro"',
   'const editor = document.createElement("vidro-editor")',
   '',
   'editor.headerTitle = "hello.ts"',

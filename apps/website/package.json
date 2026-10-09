@@ -16,7 +16,7 @@
     "next": "16.1.7",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "vidro": "workspace:*"
+    "vidropro": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

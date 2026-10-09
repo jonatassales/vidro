@@ -32,8 +32,7 @@ export function LegalContent({ content }: { content: string }) {
     content.trim().matchAll(/\S[\s\S]*?(?=\n\s*\n|$)/g),
     (match) => {
       const block = match[0]
-      if (block.startsWith('# ') || block === '**Commercial software**')
-        return null
+      if (block.startsWith('# ')) return null
       if (block.startsWith('## ')) {
         return (
           <h2

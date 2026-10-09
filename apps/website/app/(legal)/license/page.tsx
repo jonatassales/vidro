@@ -13,7 +13,7 @@ export default async function LicensePage() {
   )
 
   return (
-    <LegalPage eyebrow="Interim proprietary notice" title="License">
+    <LegalPage eyebrow="Open source · MIT" title="License">
       <LegalContent content={license} />
     </LegalPage>
   )

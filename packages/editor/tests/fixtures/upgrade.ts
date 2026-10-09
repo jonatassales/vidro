@@ -9,7 +9,7 @@ editor.setAttribute('value', 'ignored-attribute')
 editor.value = '\uFEFFbefore\r\nregistration'
 editor.language = 'plaintext'
 
-await import('vidro')
+await import('vidropro')
 customElements.upgrade(editor)
 document.body.dataset.detachedUpgradeValue = editor.value
 document.body.dataset.detachedUpgradeOwnValue = String(

@@ -11,8 +11,8 @@
     "build": "turbo run build --filter=@vidro/website...",
     "dev": "pnpm sandbox",
     "typecheck": "turbo run typecheck --filter=@vidro/website...",
-    "test": "pnpm --filter vidro build && pnpm --filter vidro test --workers=2",
-    "lint": "biome lint . --files-ignore-unknown=true && pnpm --filter vidro lint",
+    "test": "pnpm --filter vidropro build && pnpm --filter vidropro test --workers=2",
+    "lint": "biome lint . --files-ignore-unknown=true && pnpm --filter vidropro lint",
     "format": "biome format --write . --files-ignore-unknown=true",
     "sandbox": "node scripts/sandbox.mjs"
   },

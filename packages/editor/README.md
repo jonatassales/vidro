@@ -2,10 +2,18 @@
 
 Vidro is a preview editor Web Component. Importing its browser package registers `<vidro-editor>`; an editor starts when the element connects.
 
-Vidro is proprietary commercial software. See the [interim proprietary notice](LICENCE.md) and separate [third-party notices](third-party/README.md). The notice is not a final commercial EULA and does not grant unresolved customer rights.
+Vidro is free and open source under the [MIT License](LICENCE.md). Third-party components keep their separate [licenses and notices](third-party/README.md). Support for the developer is voluntary and does not affect your right to use the editor.
+
+Install the Preview from npm:
+
+```sh
+npm install vidropro@preview
+```
+
+[Published source files](https://www.npmjs.com/package/vidropro?activeTab=code) · [Support Vidro](https://vidro.pro/pt-BR/#pricing)
 
 ```ts
-import { setTheme } from 'vidro'
+import { setTheme } from 'vidropro'
 
 const editor = document.createElement('vidro-editor')
 editor.style.cssText = 'display:block;width:100%;max-height:360px'
@@ -67,6 +75,10 @@ Monaco 0.57.0's supported NLS mechanism loads its catalog before evaluating the 
 
 Monaco's internal interface is localized for all five supported aliases. Chinese and Japanese use the official bundled catalogs with reviewed supplements and corrections for missing messages and literal code identifiers. Portuguese uses Microsoft's pinned VS Code localization catalog plus a reviewed supplement; Vietnamese uses a Vidro-authored catalog. The production build verifies every referenced Monaco NLS ID and all placeholders against the exact 0.57.0 source mapping. `editor.localizationStatus` returns `{ uiLocale, monacoLocale: uiLocale, complete: true }` for these catalogs. See [catalog provenance and reproduction](localization/README.md).
 
+## Source distribution
+
+The npm archive includes the original TypeScript and CSS in `src/`, localization catalogs, build configurations, and the catalog verification/import scripts. Extract the archive into a separate directory, install its development dependencies with `npm install --include=dev`, and run `npm run build` to rebuild the browser package. This does not require access to the private monorepo. Sandbox and browser test sources remain in the repository and are not included in the npm archive.
+
 ## Sandbox
 
 ```sh
@@ -78,7 +90,7 @@ The first command builds the public package and declarations, watches them, and 
 
 The page displays all four presets together. The shared panel controls header, title/icon, copy, language selection, editability, idle delay, typography, frame variables, and preview height. Expand each preview's source or file inputs to replace its content; expand Events to observe the three public notifications. Editing starts disabled and can be enabled only in the default preset. The theme icon changes the shared runtime and the surrounding page.
 
-The sandbox imports built `vidro` exports in both modes, with no source alias or direct Monaco setup. Its icon is bundled locally and fonts use local fallbacks, so the page needs no font or image CDN.
+The sandbox imports built `vidropro` exports in both modes, with no source alias or direct Monaco setup. Its icon is bundled locally and fonts use local fallbacks, so the page needs no font or image CDN.
 
 ## Local checks
 

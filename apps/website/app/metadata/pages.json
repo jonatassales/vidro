@@ -20,19 +20,19 @@
   "policies": {
     "en": {
       "title": "Legal & Policies — Vidro",
-      "description": "Index of Vidro software licensing, purchase terms, privacy information, and third-party software notices."
+      "description": "Vidro MIT licensing, voluntary developer support, privacy information, and third-party software notices."
     }
   },
   "license": {
     "en": {
       "title": "License — Vidro",
-      "description": "Vidro's interim proprietary commercial software notice, Preview releases, and third-party software terms."
+      "description": "The MIT License for the free and open-source Vidro editor."
     }
   },
   "terms": {
     "en": {
-      "title": "Terms of Sale — Vidro",
-      "description": "Terms of Sale are being prepared for the first commercial Vidro Preview release."
+      "title": "Use & Support — Vidro",
+      "description": "Use Vidro freely under MIT and optionally support its developer."
     }
   },
   "privacy": {

@@ -87,7 +87,7 @@ export function renderSocialImage() {
             lineHeight: 1.8,
           }}
         >
-          <div style={{ color: '#D40067' }}>import &quot;vidro&quot;</div>
+          <div style={{ color: '#D40067' }}>import &quot;vidropro&quot;</div>
           <div style={{ marginTop: 18 }}>const editor =</div>
           <div style={{ paddingLeft: 24, color: '#0072F5' }}>
             document.createElement(

@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import type { VidroEditor } from 'vidro'
+import type { VidroEditor } from 'vidropro'
 
 test('readiness belongs to one connection and old settled promises keep their result', async ({
   page,

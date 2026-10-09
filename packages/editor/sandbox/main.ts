@@ -3,8 +3,8 @@ import type {
   VidroLanguage,
   VidroPreset,
   VidroTheme,
-} from 'vidro'
-import { setTheme } from 'vidro'
+} from 'vidropro'
+import { setTheme } from 'vidropro'
 import fileIcon from './assets/file.svg'
 import './style.css'
 

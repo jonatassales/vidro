@@ -1,4 +1,4 @@
-import type { VidroUiLocale } from 'vidro'
+import type { VidroUiLocale } from 'vidropro'
 
 const editor = document.createElement('vidro-editor')
 editor.uiLocale = (new URLSearchParams(location.search).get('locale') ??
@@ -14,6 +14,6 @@ editor.files = [
   { id: 'one.ts', originalValue: 'first\nold', value: 'first\nnew\nadded' },
 ]
 document.body.append(editor)
-await import('vidro')
+await import('vidropro')
 await editor.whenReady()
 document.body.dataset.ready = 'true'

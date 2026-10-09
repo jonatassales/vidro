@@ -6,7 +6,7 @@ import { HOME_COPY } from '../home-locale'
 const legalLinks = [
   { href: '/policies/', label: 'Legal & Policies', title: 'Legal & Policies' },
   { href: '/license/', label: 'License', title: 'License' },
-  { href: '/terms/', label: 'Terms', title: 'Terms of Sale' },
+  { href: '/terms/', label: 'Use & Support', title: 'Use & Support' },
   { href: '/privacy/', label: 'Privacy', title: 'Privacy' },
   {
     href: '/third-party/',

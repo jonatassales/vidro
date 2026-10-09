@@ -1,5 +1,5 @@
-import type { VidroTheme } from 'vidro'
-import { setTheme } from 'vidro'
+import type { VidroTheme } from 'vidropro'
+import { setTheme } from 'vidropro'
 
 const params = new URLSearchParams(location.search)
 if (params.get('initial') === 'dark') setTheme('dark')

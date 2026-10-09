@@ -7,7 +7,7 @@ export const metadata = pageMetadata('terms')
 
 export default function Page() {
   return (
-    <LegalPage eyebrow="Pending publication" title="Terms of Sale">
+    <LegalPage eyebrow="Open source" title="Use & Support">
       <LegalContent content={termsContent} />
     </LegalPage>
   )

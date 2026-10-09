@@ -42,7 +42,7 @@ function routeFixture(request: { url?: string }) {
 export default defineConfig({
   root: fileURLToPath(new URL('..', import.meta.url)),
   plugins: [fixtureRoutes],
-  optimizeDeps: { exclude: ['vidro'] },
+  optimizeDeps: { exclude: ['vidropro'] },
   server: { port: 4183, strictPort: true },
   preview: { port: 4184, strictPort: true },
   build: {

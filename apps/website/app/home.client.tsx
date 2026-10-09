@@ -17,6 +17,7 @@ import { Pricing } from './pricing'
 
 export function HomeExperience({ locale }: { locale: HomeLocale }) {
   const copy = HOME_COPY[locale]
+  const showPricing = locale === 'pt-BR' || locale === 'en'
 
   return (
     <div className="relative min-h-dvh overflow-x-hidden" id="top">
@@ -40,17 +41,19 @@ export function HomeExperience({ locale }: { locale: HomeLocale }) {
               {'<vidro-editor>'}
             </code>
           </div>
-          <nav
-            aria-label={copy.product}
-            className="col-start-2 row-start-1 justify-self-end lg:col-start-3"
-          >
-            <a
-              className="rounded-sm text-xs font-medium focus-visible:outline-2 focus-visible:outline-offset-4"
-              href="#pricing"
+          {showPricing && (
+            <nav
+              aria-label={copy.product}
+              className="col-start-2 row-start-1 justify-self-end lg:col-start-3"
             >
-              {copy.pricing}
-            </a>
-          </nav>
+              <a
+                className="rounded-sm text-xs font-medium focus-visible:outline-2 focus-visible:outline-offset-4"
+                href="#pricing"
+              >
+                {copy.pricing}
+              </a>
+            </nav>
+          )}
         </div>
       </header>
       <main>
@@ -82,15 +85,15 @@ export function HomeExperience({ locale }: { locale: HomeLocale }) {
                 <span aria-hidden="true">↓</span>
               </a>
               <div className="flex min-h-11 items-center gap-5 rounded-lg border border-line/80 bg-white/50 px-4 shadow-glass backdrop-blur-md">
-                <code className="font-mono text-xs">import 'vidro'</code>
-                <CopyButton label={copy.copyImport} text="import 'vidro'" />
+                <code className="font-mono text-xs">import 'vidropro'</code>
+                <CopyButton label={copy.copyImport} text="import 'vidropro'" />
               </div>
             </div>
             <FrameworkMarquee />
           </div>
         </section>
         <EditorPlayground copy={copy} />
-        <Pricing copy={copy} />
+        {showPricing && <Pricing copy={copy} />}
       </main>
       <Footer copy={copy} />
     </div>

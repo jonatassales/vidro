@@ -13,4 +13,4 @@ other.id = 'healthy-editor'
 other.style.cssText = 'display:block;width:480px;height:240px'
 other.value = 'healthy'
 document.body.append(other)
-void import('vidro')
+void import('vidropro')

@@ -6,8 +6,8 @@ import type {
   VidroPreset,
   VidroTheme,
   VidroTypingDetail,
-} from 'vidro'
-import { setTheme } from 'vidro'
+} from 'vidropro'
+import { setTheme } from 'vidropro'
 
 const theme: VidroTheme = 'dark'
 setTheme(theme)

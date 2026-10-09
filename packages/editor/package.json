@@ -1,15 +1,22 @@
 {
-  "name": "vidro",
-  "version": "0.1.0-preview.2",
+  "name": "vidropro",
+  "version": "0.1.0-preview.3",
   "private": false,
   "type": "module",
-  "description": "Vidro editor web component preview",
-  "license": "SEE LICENSE IN LICENCE.md",
+  "description": "MIT-licensed embeddable code editor Web Component",
+  "license": "MIT",
   "engines": {
     "node": ">=24"
   },
   "files": [
     "dist",
+    "src",
+    "localization",
+    "scripts/check-monaco-catalogs.mjs",
+    "scripts/import-monaco-pt-br.mjs",
+    "vite.config.ts",
+    "tsconfig.json",
+    "tsconfig.build.json",
     "LICENCE.md",
     "third-party"
   ],
@@ -40,5 +47,20 @@
     "typescript": "5.9.3",
     "vite": "8.3.2",
     "vite-plugin-css-injected-by-js": "5.0.2"
+  },
+  "homepage": "https://vidro.pro",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonatassales/vidro.git",
+    "directory": "packages/editor"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://vidro.pro/pt-BR/#pricing"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "preview"
   }
 }

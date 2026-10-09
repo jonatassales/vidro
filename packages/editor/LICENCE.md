@@ -1,50 +1,21 @@
-**Commercial software**
+# MIT License
 
-# License
+Copyright (c) 2026 Neongate
 
-Vidro is proprietary commercial software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Vidro is **not open-source software** and is not licensed under the MIT License or any other open-source license.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-All rights in Vidro are reserved except for rights expressly granted under the applicable Vidro Software License.
-
-Accessing or obtaining a copy of Vidro does not, by itself, grant permission to use, copy, modify, redistribute, sublicense, resell, republish, or otherwise exploit Vidro except as expressly permitted by the applicable license terms.
-
-## Commercial use
-
-Vidro is designed to be embedded in software products.
-
-The commercial license applicable to a licensed release defines the rights granted to use Vidro in applications, including where applicable:
-
-- commercial applications;
-- SaaS products;
-- websites;
-- internal software;
-- customer-facing software; and
-- software distributed to end users.
-
-The applicable license also defines any rights or restrictions relating to modification, redistribution, deployment, updates, and version entitlements.
-
-Embedding Vidro as a component of a licensed customer's application is distinct from redistributing, publishing, reselling, or offering Vidro itself as a standalone package, library, editor component, or competing product.
-
-## Preview releases
-
-Vidro is currently Preview software.
-
-Preview releases may contain incomplete or experimental functionality and may introduce breaking API, behavior, compatibility, or feature changes before a stable release.
-
-Access to or purchase of a Preview release does not, by itself, grant entitlement to every future Vidro release, major version, paid feature, plan, product, or commercial offering.
-
-Any update or upgrade entitlement is determined by the license applicable to the purchased release.
-
-## Third-party software
-
-Vidro may incorporate or depend on third-party software, including Monaco Editor.
-
-Third-party software remains subject to its respective license terms. Applicable copyright notices, license notices, and attribution requirements are provided separately where required.
-
-## License terms
-
-The specific rights granted to Vidro customers are governed by the commercial license applicable to the relevant release or purchase.
-
-No rights are granted except as expressly stated in those license terms or as required by applicable law.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

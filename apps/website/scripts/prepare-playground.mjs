@@ -8,7 +8,7 @@ import { build } from 'vite'
 
 const require = createRequire(import.meta.url)
 const website = fileURLToPath(new URL('..', import.meta.url))
-const editor = dirname(require.resolve('vidro/package.json'))
+const editor = dirname(require.resolve('vidropro/package.json'))
 const watching = process.argv.includes('--watch')
 
 async function prepare() {

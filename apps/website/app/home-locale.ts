@@ -12,9 +12,15 @@ export interface HomeCopy {
   pricing: string
   pricingTitle: string
   pricingDescription: string
-  oneTime: string
+  supportOptional: string
   planDescription: string
-  buy: string
+  supportBadge: string
+  pixCopy: string
+  pixCopied: string
+  pixCopyError: string
+  pixInstructions: string
+  pixCodeLabel: string
+  pixQrAlt: string
   included: string
   features: string[]
   product: string
@@ -37,13 +43,21 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     playgroundTitle: 'Make it your own.',
     playgroundDescription:
       'Four perspectives on your code. Explore every preset, adjust the details, and watch the editor respond. Everything below runs right in your browser.',
-    pricing: 'Pricing',
-    pricingTitle: 'Small price. Clear choice.',
-    pricingDescription: 'One editor. One payment. No subscription.',
-    oneTime: 'One-time purchase',
+    pricing: 'Support',
+    pricingTitle: 'Help a developer keep creating.',
+    pricingDescription: 'Vidro is free and open source under the MIT License.',
+    supportOptional: 'Support is optional. Thank you for using Vidro.',
     planDescription:
-      'A considered code experience, ready to become part of your application.',
-    buy: 'Get Vidro',
+      'I am unemployed and keep building Vidro. If the project has been useful to you, a R$ 5 contribution helps me keep going.',
+    supportBadge: 'Voluntary support',
+    pixCopy: 'Copy Pix code',
+    pixCopied: 'Pix code copied',
+    pixCopyError:
+      'Could not copy. Open the Pix code below and copy it manually.',
+    pixInstructions:
+      'Scan the QR code with your Brazilian banking app, or copy the Pix code and paste it there. The contribution is R$ 5 (BRL).',
+    pixCodeLabel: 'Pix copy-and-paste code',
+    pixQrAlt: 'Pix QR code for a voluntary R$ 5 contribution',
     included: 'Inside Vidro',
     features: [
       'Default, unified diff, split diff, and file comparisons',
@@ -70,13 +84,21 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     playgroundTitle: 'Do seu jeito.',
     playgroundDescription:
       'Quatro perspectivas do seu código. Explore cada modo, ajuste os detalhes e veja o editor responder. Tudo abaixo funciona no seu navegador.',
-    pricing: 'Preço',
-    pricingTitle: 'Preço pequeno. Escolha simples.',
-    pricingDescription: 'Um editor. Um pagamento. Sem assinatura.',
-    oneTime: 'Compra única',
+    pricing: 'Apoie',
+    pricingTitle: 'Ajude um desenvolvedor a continuar criando.',
+    pricingDescription: 'O Vidro é gratuito e open source sob a licença MIT.',
+    supportOptional: 'O apoio é opcional. Obrigado por usar o Vidro.',
     planDescription:
-      'Uma experiência de código cuidadosa, pronta para fazer parte da sua aplicação.',
-    buy: 'Adquira o Vidro',
+      'Estou desempregado e sigo construindo o Vidro. Se o projeto foi útil para você, uma contribuição de R$ 5 me ajuda a continuar.',
+    supportBadge: 'Apoio voluntário',
+    pixCopy: 'Copiar Pix',
+    pixCopied: 'Código Pix copiado',
+    pixCopyError:
+      'Não foi possível copiar. Abra o código Pix abaixo e copie manualmente.',
+    pixInstructions:
+      'Leia o QR Code no aplicativo do seu banco ou copie o código Pix e cole nele. A contribuição é de R$ 5.',
+    pixCodeLabel: 'Código Pix Copia e Cola',
+    pixQrAlt: 'QR Code Pix para uma contribuição voluntária de R$ 5',
     included: 'No Vidro',
     features: [
       'Editor padrão, diff unificado, lado a lado e por arquivos',
@@ -103,12 +125,19 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     playgroundTitle: '打造你的编辑体验。',
     playgroundDescription:
       '从四个角度查看代码。探索各个预设，调整细节，实时查看变化。以下体验完全在浏览器中运行。',
-    pricing: '价格',
-    pricingTitle: '小小价格，清晰选择。',
-    pricingDescription: '一个编辑器，一次付款，无需订阅。',
-    oneTime: '一次性购买',
-    planDescription: '精心设计的代码体验，随时融入你的应用。',
-    buy: '获取 Vidro',
+    pricing: '支持项目',
+    pricingTitle: '帮助开发者继续创作。',
+    pricingDescription: 'Vidro 是基于 MIT 许可证的免费开源软件。',
+    supportOptional: '支持完全自愿。感谢你使用 Vidro。',
+    planDescription: '如果 Vidro 对你有帮助，可以自愿支持开发者继续维护项目。',
+    supportBadge: '自愿支持',
+    pixCopy: '复制 Pix 代码',
+    pixCopied: 'Pix 代码已复制',
+    pixCopyError: '无法复制。请展开下方代码并手动复制。',
+    pixInstructions:
+      '使用巴西银行应用扫描二维码，或将 Pix 代码复制到应用中。支持金额为 5 巴西雷亚尔。',
+    pixCodeLabel: 'Pix 支付代码',
+    pixQrAlt: '自愿支持 5 巴西雷亚尔的 Pix 二维码',
     included: 'Vidro 包含',
     features: [
       '默认编辑、统一差异、并排差异及多文件比较',
@@ -134,14 +163,23 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     playgroundTitle: 'あなたらしい使い心地に。',
     playgroundDescription:
       '4つの視点でコードを確認。各プリセットを試し、細部を調整して、変化をその場で確認できます。すべてブラウザー内で動作します。',
-    pricing: '料金',
-    pricingTitle: '小さな価格。シンプルな選択。',
+    pricing: '支援',
+    pricingTitle: '開発者の創作を応援する。',
     pricingDescription:
-      'ひとつのエディター、一度のお支払い。サブスクリプションは不要です。',
-    oneTime: '買い切り',
+      'Vidro は MIT ライセンスの無料オープンソースソフトウェアです。',
+    supportOptional:
+      '支援は任意です。Vidro をご利用いただきありがとうございます。',
     planDescription:
-      'あなたのアプリケーションに自然になじむ、丁寧に設計されたコード体験。',
-    buy: 'Vidro を入手',
+      'Vidro が役に立ったら、開発の継続を任意でご支援いただけます。',
+    supportBadge: '任意の支援',
+    pixCopy: 'Pix コードをコピー',
+    pixCopied: 'Pix コードをコピーしました',
+    pixCopyError:
+      'コピーできませんでした。下のコードを開いて手動でコピーしてください。',
+    pixInstructions:
+      'ブラジルの銀行アプリで QR コードを読み取るか、Pix コードを貼り付けてください。支援額は 5 ブラジルレアルです。',
+    pixCodeLabel: 'Pix コード',
+    pixQrAlt: '任意の 5 ブラジルレアルの支援用 Pix QR コード',
     included: 'Vidro の機能',
     features: [
       '標準編集、統合差分、左右比較、ファイル比較',

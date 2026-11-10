@@ -238,5 +238,71 @@
       "english": "When enabled IntelliSense shows `issues`-suggestions.",
       "upstream": "有効にすると、IntelliSense によって '問題' 候補が示されます。"
     }
+  },
+  "es": {
+    "171": {
+      "english": "Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when {0} is on.",
+      "upstream": "Insertar espacios al presionar \"TAB\". Este valor se invalida en función del contenido del archivo cuando {0} está activado."
+    },
+    "322": {
+      "english": "Defines the regular expression used to find section headers in comments. The regex must contain a named match group `label` (written as `(?<label>.+)`) that encapsulates the section header, otherwise it will not work. Optionally you can include another match group named `separator`. Use \\n in the pattern to match multi-line headers.",
+      "upstream": "Define la expresión regular usada para buscar encabezados de sección en los comentarios. La expresión regular debe contener un grupo de coincidencias con nombre 'label' (escrito como '(?<label>.+)') que encapsula el encabezado de sección; de lo contrario, no funcionará. Opcionalmente, puede incluir otro grupo de coincidencias denominado 'separador'. Use \\n en el patrón para hacer coincidir los encabezados de varias líneas."
+    },
+    "415": {
+      "english": "Controls whether a suggestion is selected when the widget shows. Note that this only applies to automatically triggered suggestions ({0} and {1}) and that a suggestion is always selected when explicitly invoked, e.g via `Ctrl+Space`.",
+      "upstream": "Controla si se selecciona una sugerencia cuando se muestra el widget. Tenga en cuenta que esto solo se aplica a las sugerencias desencadenadas automáticamente ({0} y {1}) y que siempre se selecciona una sugerencia cuando se invoca explícitamente, por ejemplo, a través de 'Ctrl+Espacio'."
+    },
+    "423": {
+      "english": "When enabled IntelliSense shows `function`-suggestions.",
+      "upstream": "Cuando está habilitado, IntelliSense muestra sugerencias de \"función\"."
+    },
+    "425": {
+      "english": "When enabled IntelliSense shows `deprecated`-suggestions.",
+      "upstream": "Cuando se activa IntelliSense muestra sugerencias \"obsoletas\"."
+    },
+    "426": {
+      "english": "When enabled IntelliSense filtering requires that the first character matches on a word start. For example, `c` on `Console` or `WebContext` but _not_ on `description`. When disabled IntelliSense will show more results but still sorts them by match quality.",
+      "upstream": "Cuando se activa el filtro IntelliSense se requiere que el primer carácter coincida con el inicio de una palabra. Por ejemplo, \"c\" en \"Consola\" o \"WebContext\" but _not_ on \"descripción\". Si se desactiva, IntelliSense mostrará más resultados, pero los ordenará según la calidad de la coincidencia."
+    },
+    "450": {
+      "english": "When enabled IntelliSense shows `user`-suggestions.",
+      "upstream": "Cuando está habilitado, IntelliSense muestra sugerencias del usuario."
+    },
+    "451": {
+      "english": "When enabled IntelliSense shows `issues`-suggestions.",
+      "upstream": "Cuando está habilitado IntelliSense muestra sugerencias para problemas."
+    },
+    "460": {
+      "english": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
+      "upstream": "Controla si puede arrastrar y colocar un archivo en un editor de texto manteniendo presionada la tecla \"Mayús\" (en lugar de abrir el archivo en un editor)."
+    },
+    "469": {
+      "english": "Only accept a suggestion with `Enter` when it makes a textual change.",
+      "upstream": "Aceptar solo una sugerencia con \"Entrar\" cuando realiza un cambio textual."
+    },
+    "470": {
+      "english": "Controls whether suggestions should be accepted on `Enter`, in addition to `Tab`. Helps to avoid ambiguity between inserting new lines or accepting suggestions.",
+      "upstream": "Controla si las sugerencias deben aceptarse con \"Entrar\", además de \"TAB\". Ayuda a evitar la ambigüedad entre insertar nuevas líneas o aceptar sugerencias."
+    },
+    "564": {
+      "english": "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+      "upstream": "Se asigna a \"Control\" en Windows y Linux y a \"Comando\" en macOS."
+    },
+    "565": {
+      "english": "Maps to `Alt` on Windows and Linux and to `Option` on macOS.",
+      "upstream": "Se asigna a \"Alt\" en Windows y Linux y a \"Opción\" en macOS."
+    },
+    "1494": {
+      "english": "May",
+      "upstream": "May"
+    },
+    "1802": {
+      "english": "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
+      "upstream": "Se asigna a \"Control\" en Windows y Linux y a \"Comando\" en macOS."
+    },
+    "1803": {
+      "english": "Maps to `Alt` on Windows and Linux and to `Option` on macOS.",
+      "upstream": "Se asigna a \"Alt\" en Windows y Linux y a \"Opción\" en macOS."
+    }
   }
 }

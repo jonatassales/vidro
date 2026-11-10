@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-preview.3 (unreleased)
+
+- Added the `es` UI locale (neutral Latin American Spanish) for Vidro controls, clipboard feedback, plural-aware counts with `es-419` number grouping, and Monaco messages from the official Monaco 0.57.0 Spanish catalog with a reviewed supplement and literal-code corrections. All six locales report complete catalog coverage.
+
 ## 0.1.0-preview.2 (unreleased)
 
 - Added complete Vietnamese Monaco source messages and restored Brazilian Portuguese using the pinned Microsoft catalog with reviewed supplements.

@@ -59,7 +59,7 @@ Presentation, comparison inputs, and copy actions emit no editing events. Actual
 
 ## Interface localization
 
-Set `editor.uiLocale` before appending the element. Supported aliases are `en` (default), `pt-BR`, `zh` (Simplified Chinese), `ja`, and `vi`. This property localizes Vidro's own controls, clipboard feedback, file/line announcements, and editor accessible names. `editor.language` continues to select syntax highlighting.
+Set `editor.uiLocale` before appending the element. Supported aliases are `en` (default), `pt-BR`, `es` (neutral Latin American Spanish), `zh` (Simplified Chinese), `ja`, and `vi`. This property localizes Vidro's own controls, clipboard feedback, file/line announcements, and editor accessible names. `editor.language` continues to select syntax highlighting.
 
 ```ts
 const editor = document.createElement('vidro-editor')
@@ -73,7 +73,7 @@ console.log(editor.localizationStatus)
 
 Monaco 0.57.0's supported NLS mechanism loads its catalog before evaluating the editor runtime. Its locale is shared by a document and some messages are fixed during module evaluation. All connected editors must use the same Monaco locale. Use a full document navigation to change between Monaco locales; a conflicting editor rejects `whenReady()`. Changing `uiLocale` while connected throws `InvalidStateError`. Property upgrades and disconnected configuration remain supported.
 
-Monaco's internal interface is localized for all five supported aliases. Chinese and Japanese use the official bundled catalogs with reviewed supplements and corrections for missing messages and literal code identifiers. Portuguese uses Microsoft's pinned VS Code localization catalog plus a reviewed supplement; Vietnamese uses a Vidro-authored catalog. The production build verifies every referenced Monaco NLS ID and all placeholders against the exact 0.57.0 source mapping. `editor.localizationStatus` returns `{ uiLocale, monacoLocale: uiLocale, complete: true }` for these catalogs. See [catalog provenance and reproduction](localization/README.md).
+Monaco's internal interface is localized for all six supported aliases. Spanish, Chinese and Japanese use the official bundled catalogs with reviewed supplements and corrections for missing messages and literal code identifiers. Portuguese uses Microsoft's pinned VS Code localization catalog plus a reviewed supplement; Vietnamese uses a Vidro-authored catalog. The production build verifies every referenced Monaco NLS ID and all placeholders against the exact 0.57.0 source mapping. `editor.localizationStatus` returns `{ uiLocale, monacoLocale: uiLocale, complete: true }` for these catalogs. See [catalog provenance and reproduction](localization/README.md).
 
 ## Source distribution
 

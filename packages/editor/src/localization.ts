@@ -1,5 +1,5 @@
 /** UI locale is independent of the programming language selected by `language`. */
-export type VidroUiLocale = 'en' | 'pt-BR' | 'zh' | 'ja' | 'vi'
+export type VidroUiLocale = 'en' | 'pt-BR' | 'es' | 'zh' | 'ja' | 'vi'
 
 export interface VidroLocalizationStatus {
   readonly uiLocale: VidroUiLocale
@@ -22,7 +22,7 @@ export function requiredUiLocale(
 ): asserts value is VidroUiLocale {
   if (typeof value !== 'string')
     throw new TypeError('uiLocale must be a string')
-  if (!['en', 'pt-BR', 'zh', 'ja', 'vi'].includes(value))
+  if (!['en', 'pt-BR', 'es', 'zh', 'ja', 'vi'].includes(value))
     throw new RangeError('Unsupported Vidro UI locale')
 }
 
@@ -47,8 +47,13 @@ type Copy = {
   changedFiles: (count: number) => string
   lines: (added: number, deleted: number, total?: boolean) => string
 }
+const NUMBER_LOCALES: Partial<Record<VidroUiLocale, string>> = {
+  es: 'es-419',
+  zh: 'zh-CN',
+}
+/** `es` is neutral Latin American Spanish, so numbers use `es-419` grouping. */
 export const formatUiNumber = (locale: VidroUiLocale, value: number) =>
-  new Intl.NumberFormat(locale === 'zh' ? 'zh-CN' : locale).format(value)
+  new Intl.NumberFormat(NUMBER_LOCALES[locale] ?? locale).format(value)
 export const UI_COPY: Record<VidroUiLocale, Copy> = {
   en: {
     plainText: 'Plain text',
@@ -95,6 +100,29 @@ export const UI_COPY: Record<VidroUiLocale, Copy> = {
       `${formatUiNumber('pt-BR', n)} ${n === 1 ? 'arquivo alterado' : 'arquivos alterados'}`,
     lines: (a, d, total) =>
       `${total ? 'Total: ' : ''}${formatUiNumber('pt-BR', a)} ${a === 1 ? 'linha adicionada' : 'linhas adicionadas'}, ${formatUiNumber('pt-BR', d)} ${d === 1 ? 'linha excluída' : 'linhas excluídas'}`,
+  },
+  es: {
+    plainText: 'Texto sin formato',
+    documentIcon: 'Ícono de documento',
+    editorLanguage: 'Lenguaje de programación del editor',
+    editorText: 'Texto del editor',
+    originalText: 'Texto original',
+    modifiedText: 'Texto modificado',
+    copyEditor: 'Copiar texto del editor',
+    copied: 'Copiado al portapapeles',
+    copyFailed: 'No se pudo copiar al portapapeles',
+    inline: 'Diferencias en línea',
+    split: 'Diferencias en paralelo',
+    fileLanguage: (f) => `Lenguaje de programación de ${f}`,
+    copyFile: (f) => `Copiar texto modificado de ${f}`,
+    expand: (f) => `Expandir ${f}`,
+    collapse: (f) => `Contraer ${f}`,
+    showInline: (f) => `Mostrar comparación en línea de ${f}`,
+    showSplit: (f) => `Mostrar comparación en paralelo de ${f}`,
+    changedFiles: (n) =>
+      `${formatUiNumber('es', n)} ${n === 1 ? 'archivo modificado' : 'archivos modificados'}`,
+    lines: (a, d, total) =>
+      `${total ? 'Total: ' : ''}${formatUiNumber('es', a)} ${a === 1 ? 'línea agregada' : 'líneas agregadas'}, ${formatUiNumber('es', d)} ${d === 1 ? 'línea eliminada' : 'líneas eliminadas'}`,
   },
   zh: {
     plainText: '纯文本',

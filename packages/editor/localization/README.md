@@ -51,13 +51,34 @@ Updating Monaco requires rebuilding and reviewing the source mapping and all
 catalogs together. Browser tests exercise Find, commands and context menus in
 addition to Vidro controls; dictionary parity alone is not acceptance.
 
-## Chinese and Japanese
+## Spanish, Chinese and Japanese
 
 Monaco's bundled catalogs contain null entries for newer messages. Reviewed
-`zh-supplement.json` and `ja-supplement.json` provide those messages and replace
-untranslated English fallbacks. `cjk-message-ids.json` maps their exact English
-source to numeric IDs. These supplements are applied to a copy of the official
+`es-supplement.json`, `zh-supplement.json` and `ja-supplement.json` provide those
+messages and replace untranslated English fallbacks. `cjk-message-ids.json` maps
+their exact English source to numeric IDs; despite its historical name, the same
+map and `cjk-corrections-source.json` also serve Spanish, because the official
+`es` catalog has exactly the same 15 null and 14 untranslated referenced IDs. These supplements are applied to a copy of the official
 message array before editor initialization. The guard checks their English
 source and requires supplement slots to be absent or equal to English. Separate numeric-ID corrections preserve code identifiers in existing translations; their original upstream text is checked before each replacement.
 
-`unchanged-exceptions.json` records exact IDs and reasons for legitimate English-equivalent translations (key names, formatting-only messages, code terms, and words also valid in Portuguese). Any other unchanged English message fails the gate.
+`unchanged-exceptions.json` records exact IDs and reasons for legitimate English-equivalent translations (key names, formatting-only messages, code terms, and words also valid in Portuguese or Spanish). Any other unchanged English message fails the gate.
+
+### Spanish
+
+`es` is neutral Latin American Spanish on top of Monaco's official
+`esm/vs/nls/lang/es.js` (2,153 slots, 15 null). `es-supplement.json` fills the 29
+shared IDs. The official catalog addresses the reader as *usted*; the supplement
+avoids second-person forms (impersonal *se* constructions), so it reads
+consistently with Monaco and with hosts that use *tú*. Vidro's own controls are
+labels and infinitives and need no register. Numbers use `es-419` grouping.
+
+`es-corrections.json` has 16 reviewed IDs: 15 restore literal key names and code
+identifiers that the official catalog translated or quoted differently
+(`Tab`, `Enter`, `Shift`, `Command`, `Option`, `Ctrl+Space`, IntelliSense kinds,
+the `separator` group and the `Console`/`description` example, which also kept an
+untranslated English fragment), and ID 1494 restores the full month name
+*Mayo* that the official catalog left as English "May". Each correction is
+checked against its original upstream text in `cjk-corrections-source.json`.
+The remaining 51 unchanged English messages are listed with reasons in
+`unchanged-exceptions.json`.

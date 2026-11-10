@@ -54,18 +54,20 @@ for (const file of readdirSync(esm, { recursive: true }).filter((file) =>
 }
 assert.equal(seen.size, expected.size)
 assert.equal(seen.size, 2146)
+// Official Monaco catalogs completed by the shared supplement ID map and per-ID corrections.
+const officialCatalogs = { es: 'es', zh: 'zh-cn', ja: 'ja' }
 const placeholders = (value) =>
   [...value.matchAll(/\{\d+\}/g)].map(([token]) => token).sort()
 for (const locale of process.argv.slice(2).length
   ? process.argv.slice(2)
-  : ['en', 'pt-BR', 'zh', 'ja', 'vi']) {
+  : ['en', 'pt-BR', 'es', 'zh', 'ja', 'vi']) {
   let messages
   if (locale === 'en') {
     messages = Array(2153).fill(null)
     for (const entry of expected.values()) messages[entry.id] = entry.english
-  } else if (locale === 'zh' || locale === 'ja') {
+  } else if (Object.hasOwn(officialCatalogs, locale)) {
     const upstream = readFileSync(
-      join(esm, `vs/nls/lang/${locale === 'zh' ? 'zh-cn' : 'ja'}.js`),
+      join(esm, `vs/nls/lang/${officialCatalogs[locale]}.js`),
       'utf8',
     )
     const literal = upstream.match(/_VSCODE_NLS_MESSAGES=(\[.*\]);/)
@@ -109,7 +111,8 @@ for (const locale of process.argv.slice(2).length
     const entry = expected.get(id)
     if (!entry) {
       assert(manifest.unreferencedIds.includes(id))
-      if (locale !== 'zh' && locale !== 'ja') assert.equal(messages[id], null)
+      if (!Object.hasOwn(officialCatalogs, locale))
+        assert.equal(messages[id], null)
       continue
     }
     assert(

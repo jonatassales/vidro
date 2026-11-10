@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-type Locale = 'en' | 'pt-BR' | 'zh' | 'ja' | 'vi'
+type Locale = 'en' | 'pt-BR' | 'es' | 'zh' | 'ja' | 'vi'
 const cases = [
   {
     locale: 'en',
@@ -36,6 +36,26 @@ const cases = [
     total: 'Total: 2 linhas adicionadas, 1 linha excluída',
     split: 'Diff lado a lado',
     monaco: 'pt-BR',
+    complete: true,
+  },
+  {
+    locale: 'es',
+    copy: 'Copiar texto del editor',
+    success: 'Copiado al portapapeles',
+    failure: 'No se pudo copiar al portapapeles',
+    counts: [
+      '0 archivos modificados',
+      '1 archivo modificado',
+      '2 archivos modificados',
+    ],
+    expand: 'Expandir one.ts',
+    collapse: 'Contraer one.ts',
+    plain: 'Texto sin formato',
+    text: 'Texto del editor',
+    added: '2 líneas agregadas, 1 línea eliminada',
+    total: 'Total: 2 líneas agregadas, 1 línea eliminada',
+    split: 'Diferencias en paralelo',
+    monaco: 'es',
     complete: true,
   },
   {
@@ -239,6 +259,7 @@ test('a conflicting document locale rejects readiness without disturbing the fir
 const monacoLabels = {
   en: { find: 'Find', copy: 'Copy' },
   'pt-BR': { find: 'Localizar', copy: 'Copiar' },
+  es: { find: 'Buscar', copy: 'Copiar' },
   zh: { find: '查找', copy: '复制' },
   ja: { find: '検索', copy: 'コピー' },
   vi: { find: 'Tìm', copy: 'Sao chép' },

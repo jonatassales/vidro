@@ -1,0 +1,18 @@
+{
+  "171": "Insertar espacios al presionar `Tab`. Este valor se invalida en función del contenido del archivo cuando {0} está activado.",
+  "322": "Define la expresión regular usada para buscar encabezados de sección en los comentarios. La expresión regular debe contener un grupo de coincidencias con nombre `label` (escrito como `(?<label>.+)`) que encapsula el encabezado de sección; de lo contrario, no funcionará. Opcionalmente, puede incluir otro grupo de coincidencias denominado `separator`. Use \\n en el patrón para hacer coincidir los encabezados de varias líneas.",
+  "415": "Controla si se selecciona una sugerencia cuando se muestra el widget. Tenga en cuenta que esto solo se aplica a las sugerencias desencadenadas automáticamente ({0} y {1}) y que siempre se selecciona una sugerencia cuando se invoca explícitamente, por ejemplo, a través de `Ctrl+Space`.",
+  "423": "Cuando está habilitado, IntelliSense muestra sugerencias de tipo \"function\".",
+  "425": "Cuando está habilitado, IntelliSense muestra sugerencias de tipo \"deprecated\".",
+  "426": "Cuando está habilitado, el filtrado de IntelliSense requiere que el primer carácter coincida con el inicio de una palabra. Por ejemplo, `c` en `Console` o `WebContext`, pero _no_ en `description`. Si se desactiva, IntelliSense mostrará más resultados, pero los ordenará según la calidad de la coincidencia.",
+  "450": "Cuando está habilitado, IntelliSense muestra sugerencias de tipo \"user\".",
+  "451": "Cuando está habilitado, IntelliSense muestra sugerencias de tipo \"issues\".",
+  "460": "Controla si puede arrastrar y colocar un archivo en un editor de texto manteniendo presionada la tecla `Shift` (Mayús) (en lugar de abrir el archivo en un editor).",
+  "469": "Aceptar una sugerencia con `Enter` solo cuando realiza un cambio textual.",
+  "470": "Controla si las sugerencias deben aceptarse con `Enter`, además de `Tab`. Ayuda a evitar la ambigüedad entre insertar nuevas líneas o aceptar sugerencias.",
+  "564": "Se asigna a `Control` en Windows y Linux y a `Command` en macOS.",
+  "565": "Se asigna a `Alt` en Windows y Linux y a `Option` en macOS.",
+  "1494": "Mayo",
+  "1802": "Se asigna a `Control` en Windows y Linux y a `Command` en macOS.",
+  "1803": "Se asigna a `Alt` en Windows y Linux y a `Option` en macOS."
+}
